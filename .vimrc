@@ -155,3 +155,22 @@ let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
 "disable all style messages:
 let g:syntastic_quiet_messages = { "type": "style"  }
 "----------------------------Plugin end----------------------
+
+"----------------------------Key map begin-------------------
+
+
+"----------------------------Key map begin-------------------
+
+
+"----------------------------Quick run begin-----------------
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!./%<"
+    elseif &filetype == 'python'
+        exec "!python %"
+    endif
+endfunc
+"----------------------------Quick run end-----------------
