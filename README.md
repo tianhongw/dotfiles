@@ -8,6 +8,6 @@ config file for vim-plugin YouCompleteMe, put it to ~/
 config file for oh-my-zsh, put it to ~/
 - terminalrc  
 config file for xfce4-terminal, put it to ~/.config/xfce4/terminal
-- pkglst
+- pkglst  
 backup installed package. pacman -S $(< pkglist)
 
