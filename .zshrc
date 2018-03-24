@@ -93,6 +93,9 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls.="ls -al"
+alias osu="wine ~/win64/drive_c/users/kotiyasanae/Downloads/osu!/osu\!.exe >/tmp/out.file 2>&1 &"
+alias qq="wine ~/win64/drive_c/users/kotiyasanae/Downloads/qq/Bin/TIM.exe >/tmp/out.file 2>&1 &"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -102,4 +105,8 @@ export NVM_DIR="$HOME/.nvm"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export WINEPREFIX=~/win64
+export WINEARCH=win64
 

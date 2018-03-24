@@ -38,6 +38,7 @@ filetype plugin indent on    " required
 "-----------------------------General setting begin----------------
 set shell=/bin/bash
 let mapleader = ','
+noremap \ ,
 syntax enable
 syntax on
 filetype indent on
@@ -154,15 +155,15 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
 "disable all style messages:
 let g:syntastic_quiet_messages = { "type": "style"  }
+
 "----------------------------Plugin end----------------------
 
-"----------------------------Key map begin-------------------
+"---------------------------Key map begin--------------------
+
+"---------------------------Key map end--------------------
 
 
-"----------------------------Key map begin-------------------
-
-
-"----------------------------Quick run begin-----------------
+"---------------------------Quick run begin------------------
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
@@ -173,4 +174,4 @@ func! CompileRunGcc()
         exec "!python %"
     endif
 endfunc
-"----------------------------Quick run end-----------------
+"---------------------------Quick run end------------------

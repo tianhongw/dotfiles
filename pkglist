@@ -4,6 +4,7 @@ aic94xx-firmware
 aircrack-ng
 alsa-utils
 anki20-bin
+archlinuxcn-keyring
 autoconf
 automake
 bash
@@ -46,6 +47,7 @@ geckodriver
 gettext
 git
 glibc
+glxinfo
 gradle
 grep
 grub
@@ -61,7 +63,12 @@ jq
 jre9-openjdk
 jre9-openjdk-headless
 less
+lib32-alsa-lib
+lib32-gnutls
 lib32-libldap
+lib32-libpulse
+lib32-mpg123
+lib32-nvidia-utils
 lib32-openal
 licenses
 linux
@@ -83,12 +90,14 @@ mplayer
 mpv
 nano
 netctl
+netease-cloud-music
 numix-frost-themes
 numix-gtk-theme
 openmp
 openssh
 orage
 pacman
+paper-icon-theme-git
 patch
 pavucontrol
 pciutils
@@ -135,6 +144,10 @@ vi
 vim
 wd719x-firmware
 which
+wine
+wine-mono
+wine_gecko
+winetricks
 wpa_supplicant
 wqy-microhei
 wqy-microhei-lite
@@ -188,6 +201,7 @@ xorg-xrandr
 yaourt
 zathura
 zathura-pdf-poppler
+zenity
 zip
 zsh
 zsh-autosuggestions
