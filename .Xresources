@@ -1,0 +1,53 @@
+URxvt.preeditType:Root
+URxvt.inputMethod:fcitx
+URxvt.depth:32
+URxvt.urlLauncher:firefox
+URxvt.matcher.button:1
+Urxvt.perl-ext-common:matcher
+URxvt.scrollBar:False
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+URxvt.mouseWheelScrollPage:True
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+URxvt.cursorBlink:True
+URxvt.saveLines:3000
+URxvt.borderLess:False
+Xft.dpi:96
+URxvt.allow_bold:False
+URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
+URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
+
+URxvt*transparent: true
+URxvt*shading:20
+
+!######################### Colorscheme settings ########################!
+! Black baclground + Lightgray text
+*background: #111111
+*foreground: #babdb6
+! Black + DarkGrey
+*color0:  #000000
+*color8:  #555753
+! DarkRed + Red
+*color1:  #c8031a
+*color9:  #ff2828
+! DarkGreen + Green
+*color2:  #4e9a06
+*color10: #93d44f
+! DarkYellow + Yellow
+*color3:  #eab93d
+*color11: #ffc123
+! DarkBlue + Blue
+*color4:  #204a87
+*color12: #5a8bcb
+! DarkMagenta + Magenta
+*color5:  #ce5c00
+*color13: #f57900
+!DarkCyan + Cyan
+*color6:  #06989a
+*color14: #46a4ff
+! LightGrey + White
+*color7:  #cccccc
+*color15: #ffffff
+
