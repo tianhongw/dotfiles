@@ -1,1 +1,1 @@
-backup dotfils i use in my daily life.
+Hosts the dotfiles i use in my daily life.
