@@ -342,7 +342,7 @@ globalkeys = my_table.join(
               {description = "delete tag", group = "tag"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal.." -e tmux") end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -728,4 +728,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --auto run
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
-

@@ -8,7 +8,7 @@ MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=120x44
 MiscInheritGeometry=FALSE
-MiscMenubarDefault=TRUE
+MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
 MiscMouseWheelZoom=TRUE
 MiscToolbarDefault=FALSE
@@ -35,5 +35,7 @@ ColorBold=#93a1a1
 ColorBoldUseDefault=FALSE
 TabActivityColor=#dc322f
 FontName=Source Code Pro Medium 12
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+MiscShowRelaunchDialog=TRUE
+BackgroundImageShading=0.620000
+BackgroundMode=TERMINAL_BACKGROUND_IMAGE
 

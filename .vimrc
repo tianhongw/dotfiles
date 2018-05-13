@@ -148,6 +148,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "let g:ycm_collect_identifiers_from_tags_files=1
 "引入 C++ 标准库tags
 "set tags+=/data/misc/software/misc./vim/stdcpp.tags
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 
 "----vim-syntastic/syntastic

@@ -94,8 +94,9 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls.="ls -al"
-alias osu="wine ~/win64/drive_c/users/kotiyasanae/Downloads/osu!/osu\!.exe >/tmp/out.file 2>&1 &"
-alias qq="wine ~/win64/drive_c/users/kotiyasanae/Downloads/qq/Bin/TIM.exe >/tmp/out.file 2>&1 &"
+#alias osu="WINEARCH=win32 WINEPREFIX=~/win32 wine ~/win32/drive_c/users/kotiyasanae/Games/osu/osu\!.exe >/tmp/out.file1 2>&1 &"
+alias qq="WINEARCH=win64 WINEPREFIX=~/win64 wine ~/win64/drive_c/users/kotiyasanae/Downloads/qq/Bin/TIM.exe >/tmp/out.file 2>&1 &"
+alias music="mpd ~/.config/mpd/mpd.conf;mpc listall | mpc add;mpc play"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -107,6 +108,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export WINEPREFIX=~/win64
-export WINEARCH=win64
 

@@ -5,6 +5,7 @@ alsa-utils
 archlinuxcn-keyring
 autoconf
 automake
+awesome
 bash
 binutils
 bison
@@ -90,6 +91,8 @@ man-pages
 mdadm
 mesa-demos
 mousepad
+mpc
+mpd
 mplayer
 mpv
 nano
@@ -119,10 +122,12 @@ python-pip
 python-pyquery
 python-requests
 python-selenium
+ranger
 reiserfsprogs
 rhythmbox
 ristretto
 ruby
+rxvt-unicode
 screenfetch
 sed
 shadow
@@ -143,10 +148,13 @@ ttf-droid
 tumbler
 unrar
 unzip
+urxvt-perls
 usbutils
 util-linux
 vi
+vicious
 vim
+w3m
 wget
 which
 wine
