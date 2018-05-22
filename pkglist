@@ -54,6 +54,7 @@ grub-customizer
 gtk-xfce-engine
 gvfs-afc
 gzip
+htop
 ifuse
 inetutils
 intel-ucode
@@ -155,6 +156,7 @@ vi
 vicious
 vim
 w3m
+weechat
 wget
 which
 wine

@@ -138,6 +138,9 @@ let g:syntastic_check_on_wq = 0
 
 "----Youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_min_num_identifier_candidate_chars = 2
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
 "在注释输入中也能补全
 let g:ycm_complete_in_comments = 1
 "在字符串输入中也能补全
@@ -149,6 +152,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "引入 C++ 标准库tags
 "set tags+=/data/misc/software/misc./vim/stdcpp.tags
 let g:ycm_python_binary_path = '/usr/bin/python3'
+"语义补全
+let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
 
 
 "----vim-syntastic/syntastic

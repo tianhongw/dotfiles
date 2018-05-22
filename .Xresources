@@ -12,42 +12,71 @@ URxvt.scrollTtyOutput:False
 URxvt.scrollWithBuffer:True
 URxvt.scrollTtyKeypress:True
 URxvt.cursorBlink:True
-URxvt.saveLines:3000
+URxvt.saveLines:1000
 URxvt.borderLess:False
 Xft.dpi:96
 URxvt.allow_bold:False
 URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
 URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
 
-URxvt*transparent: true
+URxvt*inheritPixmap: true
+URxvt*transparent: True
 URxvt*shading:20
 
-!######################### Colorscheme settings ########################!
-! Black baclground + Lightgray text
-*background: #111111
-*foreground: #babdb6
-! Black + DarkGrey
-*color0:  #000000
-*color8:  #555753
-! DarkRed + Red
-*color1:  #c8031a
-*color9:  #ff2828
-! DarkGreen + Green
-*color2:  #4e9a06
-*color10: #93d44f
-! DarkYellow + Yellow
-*color3:  #eab93d
-*color11: #ffc123
-! DarkBlue + Blue
-*color4:  #204a87
-*color12: #5a8bcb
-! DarkMagenta + Magenta
-*color5:  #ce5c00
-*color13: #f57900
-!DarkCyan + Cyan
-*color6:  #06989a
-*color14: #46a4ff
-! LightGrey + White
-*color7:  #cccccc
-*color15: #ffffff
+!!######################### Colorscheme settings ########################!
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
+*background:            S_base03
+*foreground:            S_base0
+*fadeColor:             S_base03
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
+
+!!! red dark/light
+*color1:                S_red
+*color9:                S_orange
+
+!!! green dark/light
+*color2:                S_green
+*color10:               S_base01
+
+!!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
+
+!!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
