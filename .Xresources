@@ -1,27 +1,36 @@
-URxvt.preeditType:Root
+URxvt.loginShell: true
+
 URxvt.inputMethod:fcitx
 URxvt.depth:32
+
 URxvt.urlLauncher:firefox
 URxvt.matcher.button:1
 Urxvt.perl-ext-common:matcher
-URxvt.scrollBar:False
-URxvt.scrollBar_floating:False
+
+URxvt.mouseWheelScrollPage:frue
+
+URxvt.scrollBar:false
+URxvt.scrollBar_floating:false
 URxvt.scrollstyle:plain
-URxvt.mouseWheelScrollPage:True
-URxvt.scrollTtyOutput:False
-URxvt.scrollWithBuffer:True
-URxvt.scrollTtyKeypress:True
-URxvt.cursorBlink:True
+URxvt.scrollTtyOutput:false
+URxvt.scrollWithBuffer:true
+URxvt.scrollTtyKeypress:true
+
+URxvt.cursorBlink:true
+URxvt.cursorUnderline: false
+
 URxvt.saveLines:1000
-URxvt.borderLess:False
+URxvt.borderLess:false
+
 Xft.dpi:96
-URxvt.allow_bold:False
+
+URxvt.allow_bold:false
 URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
 URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
 
-URxvt*inheritPixmap: true
-URxvt*transparent: True
-URxvt*shading:20
+URxvt.inheritPixmap:true
+URxvt.transparent:true
+URxvt.shading:20
 
 !!######################### Colorscheme settings ########################!
 #define S_base03        #002b36

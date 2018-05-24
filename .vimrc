@@ -17,7 +17,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
-
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,7 +36,7 @@ filetype plugin indent on    " required
 "-----------------------------Vundle end----------------------------
 
 "-----------------------------General setting begin----------------
-set shell=/bin/bash
+set shell=/bin/zsh
 let mapleader = ','
 noremap \ ,
 syntax enable
@@ -59,10 +59,10 @@ set iskeyword-=-                    " '-' is an end of word designator
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
-"let g:solarized_termcolors=256
+"let g:solarized_termcolors=16
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
 let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
 set background=dark
 colorscheme solarized
 
