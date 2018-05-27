@@ -59,7 +59,8 @@ set iskeyword-=-                    " '-' is an end of word designator
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
-"let g:solarized_termcolors=16
+set t_Co=256
+let g:solarized_termcolors=256
 "let g:solarized_contrast="normal"
 "let g:solarized_visibility="normal"
 let g:solarized_termtrans=1

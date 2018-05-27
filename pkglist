@@ -1,6 +1,5 @@
 acpi
 adobe-source-code-pro-fonts
-aircrack-ng
 alsa-utils
 archlinuxcn-keyring
 autoconf
@@ -44,6 +43,7 @@ gcc
 gcc-libs
 geckodriver
 gettext
+gimp
 git
 glibc
 go
