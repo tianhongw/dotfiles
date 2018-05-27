@@ -18,6 +18,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -167,12 +168,27 @@ let g:syntastic_quiet_messages = { "type": "style"  }
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"----CtrlP
+let g:ctrlp_map = '<F3>'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc|reg|mp3|jpg|png|jpeg)$',
+    \ }
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
+
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
 
-"nerdtree
+"Nerdtree
 map <F2> :NERDTreeToggle<CR>
+
 
 "---------------------------Key map end--------------------
 
