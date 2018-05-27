@@ -17,7 +17,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'dracula/vim'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -163,9 +163,16 @@ let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
 "disable all style messages:
 let g:syntastic_quiet_messages = { "type": "style"  }
 
+"----Nerdtree
+let NERDTreeShowHidden=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
+
+"nerdtree
+map <F2> :NERDTreeToggle<CR>
 
 "---------------------------Key map end--------------------
 
