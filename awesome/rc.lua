@@ -86,8 +86,8 @@ local scrlocker    = "xlock"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -632,7 +632,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the first tag on screen 1.
     { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = awful.util.tagnames[1] } },
+      properties = { screen = 1, tag = awful.util.tagnames[2] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
@@ -728,3 +728,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --auto run
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+awful.spawn.with_shell("urxvt -e tmux")
+awful.spawn.with_shell("firefox")
