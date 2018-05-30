@@ -28,7 +28,7 @@ fi
 cd $dir
 
 # backup old config files and copy my config files to you
-echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
+echo -e "Creating $olddir for backup of any existing dotfiles in ~\n"
 mkdir -p $olddir
 for file in $files; do
     if [ -d ~/.$file -o -f ~/.$file ]; then
