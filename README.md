@@ -20,7 +20,7 @@ git clone https://github.com/Trytwice/dotfiles.git ~/dotfiles && cd ~/dotfiles &
 - **The music widget**:To use the music widget, you need install **mpd** and **mpc**.Search [ArchWiKi](https://wiki.archlinux.org/index.php/Music_Player_Daemon) for more details.
 - **About NERDTree and ctrlp**:I map **F2** for NERDTreeToggle and **F3** for ctrlp, you can remap it whatever you want in `~/.vimrc` in the end of the file.
 - **awesomewm and auto run app**:The default browser is firefox and you can change it in `~/.config/awesome/rc.lua` by the variable **browser**.When you start your system, urxvt will run in tag 1 with command -tmux, firefox will auto run in tag 2.The autorun app and command are set in the end of `rc.lua`.
-###End
+### End
 ----
 If you have any question, send me e-mail i will help you if i can.
 
