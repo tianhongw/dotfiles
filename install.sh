@@ -15,7 +15,9 @@ if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 # two awesome plugins for oh-my-zsh
+echo "Installing zsh-autosuggestions......................."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+echo "Installing zsh-syntax-highlighting...................."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # check if Vundle is installed
@@ -28,7 +30,7 @@ fi
 cd $dir
 
 # backup old config files and copy my config files to you
-echo -e "Creating $olddir for backup of any existing dotfiles in ~\n"
+echo -e "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 for file in $files; do
     if [ -d ~/.$file -o -f ~/.$file ]; then
