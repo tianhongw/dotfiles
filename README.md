@@ -18,5 +18,5 @@ git clone https://github.com/Trytwice/dotfiles.git ~/dotfiles && cd ~/dotfiles &
 ### Customization
 - **WallPaper**:The system's wallpaper is `~/.config/awesome/themes/powerarrow-dark/wall.png`, delete it and move you new wallpaper here and rename it as `wall.png`.
 - **The music widget**:To use the music widget, you need install **mpd** and **mpc**.Search [ArchWiKi](https://wiki.archlinux.org/index.php/Music_Player_Daemon) for more details.
-- **About NERDTree and ctrlp**:i map **<F2>** for NERDTreeToggle and **<F3>** for ctrlp, you can remap it whatever you want in `~/.vimrc` in the end of the file.
+- **About NERDTree and ctrlp**:i map <F2> for NERDTreeToggle and <F3> for ctrlp, you can remap it whatever you want in `~/.vimrc` in the end of the file.
 
