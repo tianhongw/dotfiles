@@ -41,7 +41,7 @@ for file in $files; do
 done
 
 vim +PluginInstall +qall    #run this to install plugins for vim according to vimrc
-xrdb ~/.Xresources          #run this to make the .Xresources work without restart X.
+xrdb ~/.Xresources          #run this to load the resource file
 
 echo -e "...........................\nAll done, restart awesomewm(Win + Ctrl + r) and open new terminal to see what happend"
 
