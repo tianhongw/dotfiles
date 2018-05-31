@@ -14,7 +14,8 @@ if [ ! -d ~/.oh-my-zsh ]; then
     echo "You need install oh-my-zsh,see https://github.com/robbyrussell/oh-my-zsh"
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
-# two awesome plugins for oh-my-zsh
+
+# two awesome plugins for zsh
 echo "Installing zsh-autosuggestions......................."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 echo "Installing zsh-syntax-highlighting...................."
@@ -38,7 +39,9 @@ for file in $files; do
     fi
     cp -r $file ~/.$file
 done
+
 vim +PluginInstall +qall    #run this to install plugins for vim according to vimrc
 xrdb ~/.Xresources          #run this to make the .Xresources work without restart X.
+
 echo -e "...........................\nAll done, restart awesomewm(Win + Ctrl + r) and open new terminal to see what happend"
 
