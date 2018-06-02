@@ -1,7 +1,7 @@
 ![](./screenshot.png)
 ### Dotfiles
 ---
-This repository hosts the dotfiles i use in my daily life. They should be cloned to your home directory, the path is `~/dotfiles/`.The script `install.sh` does two things:  
+This repository hosts the dotfiles i use in my daily life.The script `install.sh` does two things:  
 1. backup your config files(if exist) to `~/dotfiles_old`.
 2. copy my config files for `awesomewm` & `tmux` & `vim` & `urxvt` & `zsh` to you.
 ### Before installation

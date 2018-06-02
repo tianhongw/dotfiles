@@ -16,10 +16,14 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 # two awesome plugins for zsh
-echo "Installing zsh-autosuggestions......................."
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-echo "Installing zsh-syntax-highlighting...................."
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+    echo "Installing zsh-autosuggestions......................."
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+if [ ! -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+    echo "Installing zsh-syntax-highlighting...................."
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
 
 # check if Vundle is installed
 if [ ! -d ~/.vim/bundle ]; then
