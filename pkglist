@@ -70,12 +70,9 @@ jre9-openjdk
 jre9-openjdk-headless
 less
 lib32-alsa-lib
-lib32-gnutls
 lib32-libldap
 lib32-libpulse
 lib32-mpg123
-lib32-nvidia-utils
-lib32-openal
 lib32-virtualgl
 libgpod
 licenses
