@@ -12,6 +12,7 @@ bzip2
 clang
 cmake
 cmatrix
+compton
 conky
 conky-manager
 coreutils
@@ -26,11 +27,12 @@ exo
 expac
 fakeroot
 fcitx
-fcitx-googlepinyin
+fcitx-configtool
 fcitx-gtk2
 fcitx-gtk3
 fcitx-qt4
 fcitx-qt5
+fcitx-sogoupinyin
 file
 filesystem
 findutils
@@ -96,6 +98,7 @@ mousepad
 mpc
 mpd
 mplayer
+mps-youtube
 mpv
 nano
 ncurses5-compat-libs
@@ -110,7 +113,7 @@ pavucontrol
 pciutils
 pcmciautils
 perl
-pkg-config
+pkgconf
 procps-ng
 proxychains-ng
 psmisc
@@ -178,10 +181,6 @@ w3m
 weechat
 wget
 which
-wine
-wine_gecko
-wine-mono
-winetricks
 wpa_supplicant
 wqy-microhei
 wqy-microhei-lite
