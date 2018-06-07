@@ -36,7 +36,6 @@ fcitx-sogoupinyin
 file
 filesystem
 findutils
-firefox
 flake8
 flashplugin
 flex
@@ -50,6 +49,7 @@ gimp
 git
 glibc
 go
+google-chrome
 gradle
 grep
 grub
