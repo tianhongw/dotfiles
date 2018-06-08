@@ -7,7 +7,7 @@ This repository hosts the dotfiles i use in my daily life.The script `install.sh
 ### Before installation
 ---
 - Before installation, `awesomewm` & `tmux` & `vim` & `rxvt-unicode` & `zsh` are supposed to be installed.
-- Because i use **vundle** as the Vim plugin manager, you need to install [Vundle](https://github.com/VundleVim/Vundle.vim),and Vundle is an awesome plugin manager for Vim.(the `install.sh` will help you do this if you didn't)
+- Because i use **vundle** as the Vim plugin manager, you need to install [Vundle](https://github.com/VundleVim/Vundle.vim) and Vundle is an awesome plugin manager for Vim.(the `install.sh` will help you do this if you didn't)
 - Set the default shell to **zsh** if it is not the current shell.You also need to install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) for your zsh's configuration.(the `install.sh` will help you do this if you didn't)
 - The pkglist in the file is a list that lists packages installed in my computer, you can ignore it.
 ### Installation
