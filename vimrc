@@ -150,7 +150,6 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 "语义补全
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
 
-
 "----vim-syntastic/syntastic
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
@@ -180,7 +179,6 @@ let g:ctrlp_follow_symlinks=1
 map <F2> :NERDTreeToggle<CR>
 nmap <C-L> :!clear<CR>
 "---------------------------Key map end--------------------
-
 
 "---------------------------Quick run begin------------------
 map <F5> :call CompileRunGcc()<CR>
