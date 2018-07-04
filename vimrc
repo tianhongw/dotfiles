@@ -40,9 +40,7 @@ filetype plugin indent on    " required
 set shell=/bin/zsh
 let mapleader = ','
 noremap \ ,
-syntax enable
 syntax on
-filetype indent on
 set nobackup
 set noerrorbells
 set novisualbell
@@ -57,13 +55,14 @@ set hidden                          " Allow buffer switching without saving
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
 set t_Co=256
 let g:solarized_termcolors=256
-"let g:solarized_contrast="normal"
-"let g:solarized_visibility="normal"
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
 let g:solarized_termtrans=1
 set background=dark
 colorscheme solarized
@@ -101,11 +100,8 @@ set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "----------------------------UI seting end-------------------------
 
 "----------------------------Formatting begin----------------------
-
 set nowrap                      " Do not wrap long lines
 set autoindent                  " Indent at the same level of the previous line
-set smartindent
-set cindent
 set shiftwidth=4                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4                   " An indentation every four columns
@@ -117,11 +113,9 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 "set matchpairs+=<:>            "Match, to be used with %
 "set pastetoggle=<F12>          "pastetoggle (sane indentation on pastes)
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
-
 "----------------------------Formatting end----------------------
 
 "----------------------------Plugin begin----------------------
-
 "----nathanaelkane/vim-indent-guides
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -179,16 +173,12 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
-
-
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
-
 "Nerdtree
 map <F2> :NERDTreeToggle<CR>
-
-
+nmap <C-L> :!clear<CR>
 "---------------------------Key map end--------------------
 
 
@@ -197,10 +187,12 @@ map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'cpp'
-        exec "!g++ % -o %<"
+        exec "!g++ -std=c++17 % -o %<"
         exec "!./%<"
     elseif &filetype == 'python'
         exec "!python %"
+    elseif &filetype == 'go'
+        exec "!go run %"
     endif
 endfunc
 "---------------------------Quick run end------------------
