@@ -39,7 +39,6 @@ filetype plugin indent on    " required
 "-----------------------------General setting begin----------------
 set shell=/bin/zsh
 let mapleader = ','
-noremap \ ,
 syntax on
 set nobackup
 set noerrorbells
@@ -125,38 +124,31 @@ let g:indent_guides_enable_on_vim_startup = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_go_checkers = ['govet']
+let g:syntastic_quiet_messages = { "type": "style"  }   "disable all style messages
 
 "----Youcompleteme
+set completeopt=menu,menuone    "关闭 YCM 自动弹出函数原型预览窗口
+let g:ycm_add_preview_to_completeopt = 0    "关闭 YCM 自动弹出函数原型预览窗口
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_min_num_identifier_candidate_chars = 2
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-"在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-"在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
-"注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-"开启 YCM 标签引擎
-"let g:ycm_collect_identifiers_from_tags_files=1
-"引入 C++ 标准库tags
-"set tags+=/data/misc/software/misc./vim/stdcpp.tags
+let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 "注释和字符串中的文字也会被收入补全
 let g:ycm_python_binary_path = '/usr/bin/python3'
-"语义补全
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
-
-"----vim-syntastic/syntastic
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_cpp_checkers = ['syntastic-checkers-cpp']
-"disable all style messages:
-let g:syntastic_quiet_messages = { "type": "style"  }
+"let g:ycm_collect_identifiers_from_tags_files=1    "开启 YCM 标签引擎
+"set tags+=/data/misc/software/misc./vim/stdcpp.tags "引入 C++ 标准库tags
+"let g:ycm_seed_identifiers_with_syntax=1   "开启语义补全
 
 "----Nerdtree
+map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -175,8 +167,7 @@ let g:ctrlp_follow_symlinks=1
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
-"Nerdtree
-map <F2> :NERDTreeToggle<CR>
+noremap \ ,
 nmap <C-L> :!clear<CR>
 "---------------------------Key map end--------------------
 
