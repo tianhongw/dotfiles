@@ -40,6 +40,7 @@ filetype plugin indent on    " required
 set shell=/bin/zsh
 let mapleader = ','
 syntax on
+set history=50
 set nobackup
 set noerrorbells
 set novisualbell
