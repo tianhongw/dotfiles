@@ -13,8 +13,6 @@ clang
 cmake
 cmatrix
 compton
-conky
-conky-manager
 coreutils
 cryptsetup
 device-mapper
@@ -23,6 +21,7 @@ dialog
 diffutils
 e2fsprogs
 efibootmgr
+emacs
 expac
 fakeroot
 fcitx
@@ -32,18 +31,17 @@ fcitx-gtk3
 fcitx-qt4
 fcitx-qt5
 fcitx-sogoupinyin
+feh
 file
 filesystem
 findutils
 flake8
-flashplugin
 flex
 gawk
 gcc
 gcc-libs
 geckodriver
 gettext
-gimp
 git
 glibc
 go
@@ -88,6 +86,7 @@ man-db
 man-pages
 mdadm
 mesa-demos
+mousepad
 mpc
 mpd
 mplayer
@@ -103,6 +102,7 @@ pacman
 patch
 pavucontrol
 pciutils
+pcmanfm
 perl
 pkgconf
 procps-ng
@@ -176,6 +176,7 @@ xcursor-comix
 xf86-video-intel
 xfsprogs
 xorg-server
+xorg-xinput
 xorg-xrandr
 xorg-xrdb
 yaourt

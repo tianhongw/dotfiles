@@ -169,6 +169,10 @@ let g:ctrlp_follow_symlinks=1
 
 "---------------------------Key map begin--------------------
 noremap \ ,
+nnoremap <leader>s :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>\| :vs<CR>
+nnoremap <leader>- :sp<CR>
 nmap <C-L> :!clear<CR>
 "---------------------------Key map end--------------------
 
