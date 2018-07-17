@@ -149,12 +149,12 @@ let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}']
 "let g:ycm_seed_identifiers_with_syntax=1   "开启语义补全
 
 "----Nerdtree
-map <F2> :NERDTreeToggle<CR>
+noremap <c-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "----CtrlP
-let g:ctrlp_map = '<F3>'
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc|reg|mp3|jpg|png|jpeg)$',
@@ -173,6 +173,7 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
+noremap <Tab> <C-W>w
 nmap <C-L> :!clear<CR>
 "---------------------------Key map end--------------------
 
