@@ -1,5 +1,6 @@
 acpi
 adobe-source-code-pro-fonts
+adobe-source-han-serif-cn-fonts
 alsa-utils
 archlinuxcn-keyring
 autoconf
@@ -61,8 +62,8 @@ iputils
 iw
 jfsutils
 jq
-jre9-openjdk
-jre9-openjdk-headless
+jre10-openjdk
+jre10-openjdk-headless
 less
 lib32-alsa-lib
 lib32-libldap
@@ -126,6 +127,7 @@ rhythmbox
 ruby
 rxvt-unicode
 screenfetch
+scrot
 sed
 shadow
 shadowsocks
@@ -153,6 +155,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+tk
 tmux
 tree
 ttf-droid
