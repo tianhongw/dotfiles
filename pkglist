@@ -117,6 +117,7 @@ python-cchardet
 python-lxml
 python-matplotlib
 python-pip
+python-pyqt4
 python-pyquery
 python-requests
 python-requests-cache
