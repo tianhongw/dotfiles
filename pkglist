@@ -87,6 +87,7 @@ man-db
 man-pages
 mdadm
 mesa-demos
+mlocate
 mousepad
 mpc
 mpd
@@ -133,6 +134,7 @@ sed
 shadow
 shadowsocks
 s-nail
+steam
 sudo
 sysfsutils
 systemd-sysvcompat
