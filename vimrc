@@ -171,7 +171,7 @@ let g:ctrlp_follow_symlinks=1
 "---------------------------Key map begin--------------------
 noremap \ ,
 nnoremap <leader>s :up<CR>
-nnoremap <leader>q :x<CR>
+nnoremap <leader>q :q<CR>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
 nnoremap <leader>r :bro ol<CR>
