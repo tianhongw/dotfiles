@@ -136,18 +136,15 @@ let g:syntastic_go_checkers = ['govet']
 let g:syntastic_quiet_messages = { "type": "style"  }   "disable all style messages
 
 "----Youcompleteme
-set completeopt=menu,menuone    "关闭 YCM 自动弹出函数原型预览窗口
-let g:ycm_add_preview_to_completeopt = 0    "关闭 YCM 自动弹出函数原型预览窗口
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1 "注释和字符串中的文字也会被收入补全
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
-"let g:ycm_collect_identifiers_from_tags_files=1    "开启 YCM 标签引擎
-"set tags+=/data/misc/software/misc./vim/stdcpp.tags "引入 C++ 标准库tags
-"let g:ycm_seed_identifiers_with_syntax=1   "开启语义补全
 
 "----Nerdtree
 noremap <c-n> :NERDTreeToggle<CR>
@@ -182,16 +179,73 @@ nnoremap <F2> :e ~/.vimrc<CR>
 "---------------------------Key map end--------------------
 
 "---------------------------Quick run begin------------------
-map <F5> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-    exec "w"
-    if &filetype == 'cpp'
-        exec "!g++ -std=c++17 % -o %<"
-        exec "!./%<"
-    elseif &filetype == 'python'
-        exec "!python %"
+nnoremap <silent> <F5> :call SaveAndExecuteCode()<CR>
+vnoremap <silent> <F5> :<C-u>call SaveAndExecuteCode()<CR>
+
+function! SaveAndExecuteCode()
+    " save and reload current file
+    silent execute "update | edit"
+
+    " get file type
+    if &filetype == 'python'
+        let s:current_file_type = "python"
     elseif &filetype == 'go'
-        exec "!go run %"
+        let s:current_file_type = "go"
+    elseif &filetype == 'cpp'
+        let s:current_file_type = "cpp"
     endif
-endfunc
+
+    " get file path of current file
+    let s:current_buffer_file_path = expand("%")
+
+    let s:output_buffer_name = "OUTPUT"
+    let s:output_buffer_filetype = "output"
+
+    " reuse existing buffer window if it exists otherwise create a new one
+    if !exists("s:buf_nr") || !bufexists(s:buf_nr)
+        silent execute 'split new ' . s:output_buffer_name
+        let s:buf_nr = bufnr('%')
+    elseif bufwinnr(s:buf_nr) == -1
+        silent execute 'split new'
+        silent execute s:buf_nr . 'buffer'
+    elseif bufwinnr(s:buf_nr) != bufwinnr('%')
+        silent execute bufwinnr(s:buf_nr) . 'wincmd w'
+    endif
+
+    silent execute "setlocal filetype=" . s:output_buffer_filetype
+    setlocal bufhidden=delete
+    setlocal buftype=nofile
+    setlocal noswapfile
+    setlocal nobuflisted
+    setlocal winfixheight
+    setlocal cursorline " make it easy to distinguish
+    setlocal nonumber
+    setlocal norelativenumber
+    setlocal showbreak=""
+
+    " clear the buffer
+    setlocal noreadonly
+    setlocal modifiable
+    %delete _
+
+    " add the console output
+    if s:current_file_type == "python"
+        silent execute ".!python " . shellescape(s:current_buffer_file_path, 1)
+    elseif s:current_file_type == "go"
+        silent execute ".!go run " . shellescape(s:current_buffer_file_path, 1)
+    elseif s:current_file_type == "cpp"
+        silent execute ".!g++ -std=c++17 -o /tmp/a.out " . shellescape(s:current_buffer_file_path, 1)
+        silent execute ".!/tmp/a.out"
+    endif
+
+    " resize window to content length
+    " Note: This is annoying because if you print a lot of lines then your code buffer is forced to a height of one line every time you run this function.
+    "       However without this line the buffer starts off as a default size and if you resize the buffer then it keeps that custom size after repeated runs of this function.
+    "       But if you close the output buffer then it returns to using the default size when its recreated
+    " execute 'resize' . line('$')
+
+    " make the buffer non modifiable
+    setlocal readonly
+    setlocal nomodifiable
+endfunction
 "---------------------------Quick run end------------------
