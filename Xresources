@@ -4,7 +4,6 @@ URxvt.inputMethod:fcitx
 URxvt.depth:32
 
 URxvt.mouseWheelScrollPage:true
-
 URxvt.scrollBar:false
 URxvt.scrollBar_floating:false
 URxvt.scrollstyle:rxvt
@@ -20,12 +19,21 @@ URxvt.borderLess:false
 
 Xft.dpi:96
 URxvt.allow_bold:false
-URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
-URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=15,xft:WenQuanYi Zen Hei:pixelsize=15
+URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=16,xft:WenQuanYi Zen Hei:pixelsize=16
+URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=16,xft:WenQuanYi Zen Hei:pixelsize=16
 
-URxvt.inheritPixmap:true
-URxvt.transparent:true
+URxvt.inheritPixmap:false
+URxvt.transparent:false
 URxvt.shading:20
+
+URxvt.perl-ext-common: default,matcher,font-size
+URxvt.url-launcher: /usr/bin/google-chrome-stable
+URxvt.matcher.button: 1
+
+!https://github.com/majutsushi/urxvt-font-size
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-equal:  font-size:reset
 
 !!######################### Colorscheme settings ########################!
 #define t_bg_floor     #010000
@@ -44,7 +52,7 @@ URxvt.colorBD: t_fg_highlight
 URxvt.colorIT: t_fg_highlight
 URxvt.colorUL: t_fg_highlight
 
-URxvt.cursorColor: #dee0d5
+!URxvt.cursorColor: #dee0d5
 
 ! BLK
 URxvt.color0: t_bg_bump
