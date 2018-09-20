@@ -52,6 +52,7 @@ grep
 grub
 grub-customizer
 gvfs-afc
+gvim
 gzip
 htop
 ifuse
@@ -97,7 +98,10 @@ mpv
 nano
 ncdu
 ncurses5-compat-libs
+neofetch
 netctl
+netease-cloud-music
+obs-studio
 openmp
 openssh
 pacman
@@ -115,13 +119,12 @@ pulseaudio-alsa
 python-aiohttp
 python-beautifulsoup4
 python-cchardet
+python-flask
 python-lxml
 python-matplotlib
 python-pip
-python-pyqt4
 python-pyquery
 python-requests
-python-requests-cache
 python-selenium
 ranger
 reiserfsprogs
@@ -169,7 +172,6 @@ usbutils
 util-linux
 vi
 vicious
-vim
 w3m
 weechat
 wget
@@ -185,7 +187,7 @@ xorg-server
 xorg-xinput
 xorg-xrandr
 xorg-xrdb
-yaourt
+yay
 zathura
 zathura-pdf-poppler
 zenity
