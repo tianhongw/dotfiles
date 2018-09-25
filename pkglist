@@ -65,6 +65,7 @@ jfsutils
 jq
 jre10-openjdk
 jre10-openjdk-headless
+kitty
 less
 lib32-alsa-lib
 lib32-libldap
@@ -131,13 +132,11 @@ reiserfsprogs
 rhythmbox
 ruby
 rxvt-unicode
-screenfetch
 scrot
 sed
 shadow
 shadowsocks
 s-nail
-steam
 sudo
 sysfsutils
 systemd-sysvcompat
