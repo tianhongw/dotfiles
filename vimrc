@@ -60,6 +60,18 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=l
+    set guioptions-=r
+    set guioptions-=b
+    set showtabline=0
+    if has("unix")
+        set guifont=Source\ Code\ Pro\ 13
+        set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 13
+    endif
+endif
 set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_contrast="normal"
@@ -163,6 +175,7 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_show_hidden = 1
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
@@ -193,6 +206,8 @@ function! SaveAndExecuteCode()
         let s:current_file_type = "go"
     elseif &filetype == 'cpp'
         let s:current_file_type = "cpp"
+    else
+        return
     endif
 
     " get file path of current file
