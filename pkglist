@@ -23,6 +23,7 @@ diffutils
 e2fsprogs
 efibootmgr
 emacs
+evince
 expac
 fakeroot
 fcitx
@@ -106,6 +107,7 @@ obs-studio
 openmp
 openssh
 pacman
+pandoc
 patch
 pavucontrol
 pciutils
@@ -130,6 +132,7 @@ python-selenium
 ranger
 reiserfsprogs
 rhythmbox
+rofi
 ruby
 rxvt-unicode
 scrot
@@ -164,6 +167,7 @@ tk
 tmux
 tree
 ttf-droid
+ttf-font-awesome
 unrar
 unzip
 urxvt-perls
