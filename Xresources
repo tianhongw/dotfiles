@@ -19,11 +19,11 @@ URxvt.borderLess:false
 
 Xft.dpi:96
 URxvt.allow_bold:false
-URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=16,xft:WenQuanYi Zen Hei:pixelsize=16
-URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=16,xft:WenQuanYi Zen Hei:pixelsize=16
+URxvt.font:xft:Source Code Pro:style=Regular:antialias=True:size=12,xft:WenQuanYi Zen Hei:style=Regular:size=12
+URxvt.boldfont:xft:Source Code Pro:style=Regular:antialias=True:size=12,xft:WenQuanYi Zen Hei:style=Regular:size=12
 
-URxvt.inheritPixmap:false
-URxvt.transparent:false
+URxvt.inheritPixmap:true
+URxvt.transparent:true
 URxvt.shading:20
 
 URxvt.perl-ext-common: default,matcher,font-size

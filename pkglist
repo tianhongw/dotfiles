@@ -3,6 +3,7 @@ adobe-source-code-pro-fonts
 adobe-source-han-serif-cn-fonts
 alsa-utils
 archlinuxcn-keyring
+aspell-en
 autoconf
 automake
 awesome
@@ -39,6 +40,7 @@ filesystem
 findutils
 flake8
 flex
+fzf
 gawk
 gcc
 gcc-libs
@@ -114,6 +116,7 @@ pciutils
 pcmanfm
 perl
 pkgconf
+polipo
 procps-ng
 proxychains-ng
 psmisc
@@ -129,10 +132,12 @@ python-pip
 python-pyquery
 python-requests
 python-selenium
+python-virtualenv
 ranger
 reiserfsprogs
 rhythmbox
 rofi
+rsync
 ruby
 rxvt-unicode
 scrot
