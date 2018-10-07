@@ -216,11 +216,11 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
-    awful.key({ altkey,           }, "t", function() awful.spawn("scrot -s -e \'mv $f ~/Media/picture/screenshots/\'") end,
+    awful.key({                  }, "Print", function() awful.spawn.with_shell("flameshot gui -p ~/Media/picture/screenshots/") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
+    awful.key({ altkey, "Control" }, "l", function () awful.spawn.with_shell("i3lock-fancy -gpf Monaco -- scrot -z") end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Hotkeys
