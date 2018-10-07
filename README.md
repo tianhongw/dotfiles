@@ -20,7 +20,7 @@ git clone https://github.com/Trytwice/dotfiles.git ~/dotfiles && cd ~/dotfiles &
 ### Customization
 ---
 - **WallPaper**:The system's wallpaper is `~/.config/awesome/themes/powerarrow-dark/wall.png`, delete it and move you new wallpaper here and rename it as `wall.png`.
-- **music widget**:To use the music widget, you need install **mpd** and **mpc**.Search [ArchWiKi](https://wiki.archlinux.org/index.php/Music_Player_Daemon) for more details.
+- **Music widget**:To use the music widget, you need install **mpd** and **mpc**.Search [ArchWiKi](https://wiki.archlinux.org/index.php/Music_Player_Daemon) for more details.
 - **Mail widget**:To use the mail widget, you need config the `/themes/powerarrow-dark/theme.lua`, If you are in china, mail widget will not work when the mail server is gmail,
 edit the `head_command` variable in `/lain/widget/imap.lua` will fix this(proxychains, polipo, etc).
 
