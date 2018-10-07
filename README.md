@@ -1,4 +1,4 @@
-![](./screenshot.png)
+![](./images/screenshot.png)
 ### Dotfiles
 ---
 This repository hosts the dotfiles i use in my daily life.The script `install.sh` does two things:  
@@ -9,7 +9,8 @@ This repository hosts the dotfiles i use in my daily life.The script `install.sh
 - Before installation, `awesomewm` & `tmux` & `vim` & `rxvt-unicode` & `zsh` are supposed to be installed.
 - Because i use **vundle** as the Vim plugin manager, you need to install [Vundle](https://github.com/VundleVim/Vundle.vim) and Vundle is an awesome plugin manager for Vim.(the `install.sh` will help you do this if you didn't)
 - Set the default shell to **zsh** if it is not the current shell.You also need to install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) for your zsh's configuration.(the `install.sh` will help you do this if you didn't)
-- Install Source Code Pro & WenQuanYi Zen Hei font, or set `URxvt.font` in `Xresources` to what you want to use.
+- Theme uses font `![FontAwesome](https://fontawesome.com/)`, in archlinux you can run `sudo pacman -S ttf-font-awesome` to install it.
+- Install `Source Code= Pro` & `WenQuanYi Zen Hei font`, or set `URxvt.font` in `Xresources` to what you want to use.
 - The pkglist in the file is a list that lists packages installed in my computer, you can ignore it.
 ### Installation
 ---
@@ -20,6 +21,6 @@ git clone https://github.com/Trytwice/dotfiles.git ~/dotfiles && cd ~/dotfiles &
 ---
 - **WallPaper**:The system's wallpaper is `~/.config/awesome/themes/powerarrow-dark/wall.png`, delete it and move you new wallpaper here and rename it as `wall.png`.
 - **The music widget**:To use the music widget, you need install **mpd** and **mpc**.Search [ArchWiKi](https://wiki.archlinux.org/index.php/Music_Player_Daemon) for more details.
-- **About NERDTree and ctrlp**:I map **Ctrl-n** for NERDTreeToggle and **Ctrl-p** for ctrlp, you can remap it whatever you want in `~/.vimrc` in the end of the file.
-- **awesomewm and auto run app**:The default browser is firefox and you can change it in `~/.config/awesome/rc.lua` by the variable **browser**.When you start your system, urxvt will run automatically in tag 1 with command -tmux, firefox will run automatically in tag 2.The app and command those run automatically are set in the end of `rc.lua`.
+- **Mail**:To use the mail widget, you need config the `/themes/powerarrow-dark/theme.lua`, If you are in china, mail widget will not work when the mail server is gmail,
+edit the `head_command` variable in `/lain/widget/imap.lua` will fix this(proxychains, polipo, etc).
 
