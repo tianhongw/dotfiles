@@ -51,23 +51,26 @@ theme.layout_max                                = theme.dir .. "/icons/max.png"
 theme.layout_fullscreen                         = theme.dir .. "/icons/fullscreen.png"
 theme.layout_magnifier                          = theme.dir .. "/icons/magnifier.png"
 theme.layout_floating                           = theme.dir .. "/icons/floating.png"
-theme.widget_ac                                 = theme.dir .. "/icons/ac.png"
-theme.widget_battery                            = theme.dir .. "/icons/battery.png"
+theme.widget_ac                                 = theme.dir .. "/icons/battery_full.png"
+theme.widget_battery                            = theme.dir .. "/icons/battery_full.png"
 theme.widget_battery_low                        = theme.dir .. "/icons/battery_low.png"
 theme.widget_battery_empty                      = theme.dir .. "/icons/battery_empty.png"
 theme.widget_mem                                = theme.dir .. "/icons/mem.png"
-theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
-theme.widget_temp                               = theme.dir .. "/icons/temp.png"
-theme.widget_net                                = theme.dir .. "/icons/net.png"
-theme.widget_hdd                                = theme.dir .. "/icons/hdd.png"
-theme.widget_music                              = theme.dir .. "/icons/note.png"
-theme.widget_music_on                           = theme.dir .. "/icons/note_on.png"
+theme.widget_cpu                                = theme.dir .. "/icons/cpu_new.png"
+theme.widget_temp                               = theme.dir .. "/icons/alert.png"
+theme.widget_net                                = theme.dir .. "/icons/wifi.png"
+theme.widget_net_down                           = theme.dir .. "/icons/arrow_downward.png"
+theme.widget_net_up                             = theme.dir .. "/icons/arrow_upward.png"
+theme.widget_hdd                                = theme.dir .. "/icons/storage.png"
+theme.widget_music                              = theme.dir .. "/icons/music.png"
+theme.widget_music_on                           = theme.dir .. "/icons/music.png"
 theme.widget_vol                                = theme.dir .. "/icons/vol.png"
 theme.widget_vol_low                            = theme.dir .. "/icons/vol_low.png"
 theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.png"
 theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
-theme.widget_mail                               = theme.dir .. "/icons/mail.png"
+theme.widget_mail                               = theme.dir .. "/icons/mail_new.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
+theme.calendar                                  = theme.dir .. "/icons/calendar.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = 5
@@ -98,11 +101,13 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%a %d %b %R'", 60,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.font(theme.font, stdout))
+        --widget:set_markup(" " .. markup.font(theme.font, stdout))
+        widget:set_markup(" " .. markup.font(theme.font, markup("#F5DEB3", stdout)))
     end
 )
 
 -- Calendar
+local calendaricon = wibox.widget.imagebox(theme.calendar)
 theme.cal = lain.widget.calendar({
     attach_to = { clock },
     notification_preset = {
@@ -118,12 +123,13 @@ mailicon:buttons(my_table.join(awful.button({ }, 1, function () awful.spawn(mail
 local mail = lain.widget.imap({
     timeout  = 180,
     server   = "imap.gmail.com",
-    mail     = "example@gmail.com",
-    password = "youpassword",
+    mail     = "wjzdmr@gmail.com",
+    password = "wjzdmr_7412412",
     settings = function()
         if mailcount > 0 then
             widget:set_text(" " .. mailcount .. " ")
-            mailicon:set_image(theme.widget_mail_on)
+            --mailicon:set_image(theme.widget_mail_on)
+            mailicon:set_image(theme.widget_mail)
         else
             widget:set_text("")
             mailicon:set_image(theme.widget_mail)
@@ -163,7 +169,7 @@ theme.mpd = lain.widget.mpd({
             mpdicon:set_image(theme.widget_music)
         end
 
-        widget:set_markup(markup.font(theme.font, markup("#12C2ED", artist .. " -  " .. title)))
+        widget:set_markup(markup.font(theme.font, markup("#12C2ED", artist .. " " .. title)))
     end
 })
 
@@ -171,7 +177,7 @@ theme.mpd = lain.widget.mpd({
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
+        widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. mem_now.used .. "MB ")))
     end
 })
 
@@ -179,7 +185,7 @@ local mem = lain.widget.mem({
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
+        widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. cpu_now.usage .. "% ")))
     end
 })
 
@@ -187,16 +193,16 @@ local cpu = lain.widget.cpu({
 local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local temp = lain.widget.temp({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. coretemp_now .. "°C "))
+        widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. coretemp_now .. "°C ")))
     end
 })
 
 -- / fs
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 theme.fs = lain.widget.fs({
-    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal .. "00", font = "Monaco 10" },
+    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal .. "80", font = "Monaco 10" },
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. fs_now["/"].percentage .. "% "))
+        widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. fs_now["/"].percentage .. "% ")))
     end
 })
 
@@ -206,7 +212,7 @@ local bat = lain.widget.bat({
     settings = function()
         if bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                widget:set_markup(markup.font(theme.font, " AC "))
+                widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC")))
                 baticon:set_image(theme.widget_ac)
                 return
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
@@ -218,7 +224,7 @@ local bat = lain.widget.bat({
             end
             widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
         else
-            widget:set_markup(markup.font(theme.font, " AC "))
+            widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC")))
             baticon:set_image(theme.widget_ac)
         end
     end
@@ -237,13 +243,14 @@ theme.volume = lain.widget.alsa({
         else
             volicon:set_image(theme.widget_vol)
         end
-
-        widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
+        widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. volume_now.level .. "% ")))
     end
 })
 
 -- Net
 local neticon = wibox.widget.imagebox(theme.widget_net)
+local neticon_down = wibox.widget.imagebox(theme.widget_net_down)
+local neticon_up = wibox.widget.imagebox(theme.widget_net_up)
 local net = lain.widget.net({
     settings = function()
         widget:set_markup(markup.font(theme.font,
@@ -313,22 +320,29 @@ function theme.at_screen_connect(s)
             spr,
             wibox.container.background(mpdicon),
             wibox.container.background(theme.mpd.widget),
+            spr,
             volicon,
             theme.volume.widget,
             wibox.container.background(mailicon),
             wibox.container.background(mail.widget),
+            spr,
+            spr,
             memicon,
             mem.widget,
+            spr,
             wibox.container.background(cpuicon),
             wibox.container.background(cpu.widget),
+            spr,
             tempicon,
             temp.widget,
+            spr,
             wibox.container.background(fsicon),
             wibox.container.background(theme.fs.widget),
             baticon,
             bat.widget,
             wibox.container.background(neticon),
             wibox.container.background(net.widget),
+            calendaricon,
             clock,
             spr,
             wibox.container.background(s.mylayoutbox, theme.bg_focus),

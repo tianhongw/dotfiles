@@ -67,8 +67,7 @@ local terminal     = "urxvt"
 local editor       = "vim"
 local gui_editor   = "emacs"
 local browser      = "google-chrome-stable"
-local guieditor    = "gvim"
-local scrlocker    = "xlock"
+local guieditor    = "mousepad"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "", "", "", "", "", ""}
@@ -220,7 +219,7 @@ globalkeys = my_table.join(
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () awful.spawn.with_shell("i3lock-fancy -gpf Monaco -- scrot -z") end,
+    awful.key({ altkey, "Control" }, "l", function () awful.spawn.with_shell("betterlockscreen -l dim") end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Hotkeys
@@ -469,35 +468,24 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "e", function () awful.spawn(gui_editor) end,
               {description = "run emacs", group = "launcher"}),
 
-    -- Default
-    --[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
-    --]]
-    --[[ dmenu
-    awful.key({ modkey }, "x", function ()
-        awful.spawn(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
-        beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-		end,
-        {description = "show dmenu", group = "launcher"})
-    --]]
     -- Prompt
     awful.key({ modkey }, "r", function () awful.spawn("rofi -show drun") end,
               {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "w", function ()  awful.spawn("rofi -show window") end,
               {description = "show main menu", group = "launcher"}),
+    awful.key({ modkey }, "x", function ()  awful.spawn("pcmanfm") end,
+              {description = "show filemanager", group = "launcher"})
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
-    --]]
+    --awful.key({ modkey }, "x",
+              --function ()
+                  --awful.prompt.run {
+                    --prompt       = "Run Lua code: ",
+                    --textbox      = awful.screen.focused().mypromptbox.widget,
+                    --exe_callback = awful.util.eval,
+                    --history_path = awful.util.get_cache_dir() .. "/history_eval"
+                  --}
+              --end,
+              --{description = "lua execute prompt", group = "awesome"})
 )
 
 clientkeys = my_table.join(
@@ -635,6 +623,18 @@ awful.rules.rules = {
       properties = { screen = 1, tag = awful.util.tagnames[6] } },
     -- Wechat
     { rule = { class = "electronic-wechat" },
+      properties = { screen = 1, tag = awful.util.tagnames[5] } },
+    -- Obs
+    { rule = { class = "obs" },
+      properties = { screen = 1, tag = awful.util.tagnames[4] } },
+    -- osu
+    { rule = { class = "Wine" },
+      properties = { screen = 1, tag = awful.util.tagnames[4] } },
+    -- steam
+    { rule = { class = "Steam" },
+      properties = { screen = 1, tag = awful.util.tagnames[4] } },
+    -- Telegram
+    { rule = { class = "Telegram" },
       properties = { screen = 1, tag = awful.util.tagnames[5] } },
     --{ rule = { class = "Gimp", role = "gimp-image-window" },
           --properties = { maximized = true } },
