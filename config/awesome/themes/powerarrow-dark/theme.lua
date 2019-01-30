@@ -68,7 +68,7 @@ theme.widget_vol                                = theme.dir .. "/icons/vol.png"
 theme.widget_vol_low                            = theme.dir .. "/icons/vol_low.png"
 theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.png"
 theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
-theme.widget_mail                               = theme.dir .. "/icons/mail_new.png"
+theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
 theme.calendar                                  = theme.dir .. "/icons/calendar.png"
 theme.tasklist_plain_task_name                  = true
@@ -127,7 +127,9 @@ local mail = lain.widget.imap({
     password = "wjzdmr_7412412",
     settings = function()
         if mailcount > 0 then
-            widget:set_text(" " .. mailcount .. " ")
+            --widget:set_text(" " .. mailcount .. " ")
+            --widget:set_text(" " .. markup.font(theme.font, markup("#FF0000", " ",  mailcount)) .. " ")
+            widget:set_markup(" " .. markup.font(theme.font, markup("#FF0000", mailcount)))
             --mailicon:set_image(theme.widget_mail_on)
             mailicon:set_image(theme.widget_mail)
         else
@@ -212,7 +214,7 @@ local bat = lain.widget.bat({
     settings = function()
         if bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC")))
+                widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC  ")))
                 baticon:set_image(theme.widget_ac)
                 return
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
@@ -222,9 +224,9 @@ local bat = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
+            widget:set_markup(markup.font(theme.font, markup("#48D1CC", " " .. bat_now.perc .. "% ")))
         else
-            widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC")))
+            widget:set_markup(markup.font(theme.font, markup("#48D1CC", "AC  ")))
             baticon:set_image(theme.widget_ac)
         end
     end
