@@ -123,8 +123,8 @@ mailicon:buttons(my_table.join(awful.button({ }, 1, function () awful.spawn(mail
 local mail = lain.widget.imap({
     timeout  = 180,
     server   = "imap.gmail.com",
-    mail     = "wjzdmr@gmail.com",
-    password = "wjzdmr_7412412",
+    mail     = "youremail@gmail.com",
+    password = "yourpassword",
     settings = function()
         if mailcount > 0 then
             --widget:set_text(" " .. mailcount .. " ")
