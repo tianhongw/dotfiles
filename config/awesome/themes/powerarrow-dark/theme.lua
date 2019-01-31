@@ -113,7 +113,7 @@ theme.cal = lain.widget.calendar({
     notification_preset = {
         font = "Monaco 10",
         fg   = theme.fg_normal,
-        bg   = theme.bg_normal .. "00"
+        bg   = theme.bg_normal .. "80"
     }
 })
 
@@ -127,10 +127,7 @@ local mail = lain.widget.imap({
     password = "yourpassword",
     settings = function()
         if mailcount > 0 then
-            --widget:set_text(" " .. mailcount .. " ")
-            --widget:set_text(" " .. markup.font(theme.font, markup("#FF0000", " ",  mailcount)) .. " ")
             widget:set_markup(" " .. markup.font(theme.font, markup("#FF0000", mailcount)))
-            --mailicon:set_image(theme.widget_mail_on)
             mailicon:set_image(theme.widget_mail)
         else
             widget:set_text("")
