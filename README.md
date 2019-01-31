@@ -1,4 +1,4 @@
-![](./images/screenshot.png)
+![](./images/screenshot_new.png)
 ### Dotfiles
 ---
 This repository hosts the dotfiles i use in my daily life.The script `install.sh` does two things:  
