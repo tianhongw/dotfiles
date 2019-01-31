@@ -30,7 +30,7 @@ local function factory(args)
     local notify    = args.notify or "on"
     local settings  = args.settings or function() end
 
-    local head_command = "proxychains curl --connect-timeout 3 -fsm 3"
+    local head_command = "curl --connect-timeout 3 -fsm 3"
     local request = "-X 'SEARCH (UNSEEN)'"
 
     if not server or not mail or not password then return end
