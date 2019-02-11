@@ -12,7 +12,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
@@ -103,8 +102,8 @@ set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
-set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
+"set list
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
 set laststatus=2
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
@@ -130,11 +129,6 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 "----------------------------Formatting end----------------------
 
 "----------------------------Plugin begin----------------------
-"----nathanaelkane/vim-indent-guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-
 "----vim-syntastic/syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -156,11 +150,12 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_key_list_stop_completion = ['<CR>']
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
 
 "----Nerdtree
-noremap <c-n> :NERDTreeToggle<CR>
+noremap <c-n> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -187,6 +182,7 @@ let g:go_fmt_command = "goimports"
 noremap \ ,
 nnoremap <leader>s :up<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>p <C-^>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
 nnoremap <leader>r :bro ol<CR>
@@ -194,6 +190,7 @@ nnoremap <Tab> <C-W>w
 nnoremap <leader>d <C-W>c
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "---------------------------Key map end--------------------
 
 "---------------------------Quick run begin------------------
