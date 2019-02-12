@@ -43,6 +43,7 @@ syntax on
 set history=30
 set viminfo='30
 set nobackup
+set noswapfile
 set noerrorbells
 set novisualbell
 set mouse=a                 " Automatically enable mouse usage
@@ -56,7 +57,20 @@ set hidden                          " Allow buffer switching without saving
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
+set autoread						" Set to auto read when a file is changed from the outside
+set lazyredraw 						" Don't redraw while executing macros (good performance config)
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" Delete trailing white space on save, useful for some filetypes ;)
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.go,*.sh,*.coffee :call CleanExtraSpaces()
+endif
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
@@ -180,7 +194,9 @@ let g:go_fmt_command = "goimports"
 
 "---------------------------Key map begin--------------------
 noremap \ ,
-nnoremap <leader>s :up<CR>
+map 0 ^
+nnoremap <leader>s :w<CR>       
+command W w !sudo tee % > /dev/null
 nnoremap <leader>q :q<CR>
 nnoremap <leader>p <C-^>
 nnoremap <leader>\| :vs<CR>
@@ -190,7 +206,8 @@ nnoremap <Tab> <C-W>w
 nnoremap <leader>d <C-W>c
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "---------------------------Key map end--------------------
 
 "---------------------------Quick run begin------------------
