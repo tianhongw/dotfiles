@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
@@ -37,17 +38,18 @@ filetype plugin indent on    " required
 "-----------------------------Vundle end----------------------------
 
 "-----------------------------General setting begin----------------
+syntax on
 set shell=/bin/zsh
 let mapleader = ','
-syntax on
 set history=30
 set viminfo='30
 set nobackup
-set noswapfile
 set noerrorbells
 set novisualbell
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
 scriptencoding utf-8
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -57,20 +59,7 @@ set hidden                          " Allow buffer switching without saving
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
-set autoread						" Set to auto read when a file is changed from the outside
-set lazyredraw 						" Don't redraw while executing macros (good performance config)
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-" Delete trailing white space on save, useful for some filetypes ;)
-fun! CleanExtraSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
-endfun
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.go,*.sh,*.coffee :call CleanExtraSpaces()
-endif
 "-----------------------------General setting end---------------------
 
 "----------------------------UI seting begin-------------------------
@@ -82,8 +71,8 @@ if has("gui_running")
     set guioptions-=b
     set showtabline=0
     if has("unix")
-        set guifont=Source\ Code\ Pro\ 13
-        set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 13
+        set guifont=Source\ Code\ Pro\ 12
+        set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
     endif
 endif
 set t_Co=256
@@ -116,8 +105,8 @@ set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
-"set list
-"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
 set laststatus=2
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
@@ -143,6 +132,11 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 "----------------------------Formatting end----------------------
 
 "----------------------------Plugin begin----------------------
+"----nathanaelkane/vim-indent-guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
 "----vim-syntastic/syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -164,12 +158,11 @@ let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_key_list_stop_completion = ['<CR>']
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
 
 "----Nerdtree
-noremap <c-n> :NERDTreeFind<CR>
+noremap <c-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -189,16 +182,12 @@ let g:ctrlp_show_hidden = 1
 
 "----Vim-go
 let g:go_fmt_command = "goimports"
-
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
 noremap \ ,
-map 0 ^
-nnoremap <leader>s :w<CR>       
-command W w !sudo tee % > /dev/null
+nnoremap <leader>s :up<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>p <C-^>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
 nnoremap <leader>r :bro ol<CR>
@@ -206,8 +195,6 @@ nnoremap <Tab> <C-W>w
 nnoremap <leader>d <C-W>c
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "---------------------------Key map end--------------------
 
 "---------------------------Quick run begin------------------
