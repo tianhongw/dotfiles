@@ -7,7 +7,7 @@
 
 dir=~/dotfiles              #dotfiles directory
 olddir=~/dotfiles_old       #old dotfiles backup directory
-files="config/awesome config/rofi tmux.conf vimrc Xresources zshrc"   #list of files
+files="config/awesome tmux.conf vimrc Xresources zshrc"   #list of files
 
 # check if oh-my-zsh is installed
 if [ ! -d ~/.oh-my-zsh ]; then
