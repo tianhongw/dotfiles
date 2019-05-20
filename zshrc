@@ -102,3 +102,11 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # custom setting
+
+# zsh history setting
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_DUPS
+
+# fix zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'

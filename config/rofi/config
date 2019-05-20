@@ -1,0 +1,6 @@
+rofi.theme: ~/.config/rofi/themes/gruvbox/gruvbox-dark.rasi
+rofi.modi: window,run,ssh,drun,combi
+rofi.lines: 15
+rofi.case-sensitive: false
+rofi.font: monaco 12
+

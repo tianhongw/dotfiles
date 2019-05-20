@@ -7,7 +7,7 @@
 
 dir=~/dotfiles              #dotfiles directory
 olddir=~/dotfiles_old       #old dotfiles backup directory
-files="config/awesome tmux.conf vimrc Xresources zshrc"   #list of files
+files="config/awesome config/rofi tmux.conf vimrc Xresources zshrc"   #list of files
 
 # check if oh-my-zsh is installed
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -44,8 +44,8 @@ for file in $files; do
     cp -r $file ~/.$file
 done
 
-vim +PluginInstall +qall    #run this to install plugins for vim according to vimrc
 xrdb ~/.Xresources          #run this to load the resource file
+vim +PluginInstall +qall    #run this to install plugins for vim according to vimrc
 
-echo -e "...........................\nAll done, restart awesomewm(Win + Ctrl + r) and open new terminal to see what happend"
+echo -e "...........................\nAll done, restart awesomewm(Win + Ctrl + r) and open new terminal to see what happended"
 

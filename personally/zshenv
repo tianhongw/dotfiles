@@ -1,0 +1,11 @@
+export GOPATH="/home/tianhongw/Code/go"
+export GOBIN="/home/tianhongw/Code/go/bin"
+export PATH=$PATH:$GOBIN:/usr/lib/go/bin:/home/tianhongw/.gem/ruby/2.6.0/bin
+export PATH=$(echo $PATH | sed 's/:/\n/g' | sort | uniq | tr -s '\n' ':' | sed 's/:$//g')
+
+# fzf
+export FZF_DEFAULT_COMMAND="fd -H --exclude={.git,.mp3,.png,.jpg,.jpeg,build} --type f"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+
+# adcms
+export ADCMS_CONFIG_FILE="/home/tianhongw/Code/go/src/adx/adcms/conf/dev.cfg"
