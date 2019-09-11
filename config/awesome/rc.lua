@@ -74,9 +74,9 @@ awful.util.tagnames = { "", "", "", "", "", ""}
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile,
+    awful.layout.suit.tile,
     awful.layout.suit.floating,
-    awful.layout.suit.floating,
-    awful.layout.suit.magnifier,
+    awful.layout.suit.tile.left,
     awful.layout.suit.magnifier,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -215,7 +215,7 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
-    awful.key({                  }, "Print", function() awful.spawn.with_shell("flameshot gui -p ~/Media/picture/screenshots/") end,
+    awful.key({                  }, "Print", function() awful.spawn.with_shell("flameshot gui -p ~/Hdd/media/picture/screenshots/") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
@@ -614,7 +614,7 @@ awful.rules.rules = {
       --properties = { screen = 1, tag = awful.util.tagnames[2] } },
     -- Emacs
     { rule = { class = "Emacs" },
-      properties = { screen = 1, maximized = true, tag = awful.util.tagnames[2] } },
+      properties = { screen = 1, fullscreen = true, tag = awful.util.tagnames[2] } },
     -- google-chrome
     { rule = { class = "chrome" },
       properties = { screen = 1, maximized = true, tag = awful.util.tagnames[3] } },
