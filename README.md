@@ -11,6 +11,8 @@ This repository hosts the dotfiles i use in my daily life.The script `install.sh
 - Set the default shell to **zsh** if it is not the current shell.You also need to install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) for your zsh's configuration.(the `install.sh` will help you do this if you didn't)
 - Theme uses font [FontAwesome](https://fontawesome.com/), in archlinux you can run `sudo pacman -S ttf-font-awesome` to install it.
 - Install `Monaco` & `adobe-source-han-sans`, or set `URxvt.font` in `Xresources` to what you want to use. In archlinux you can install these fonts by run `sudo pacman -S ttf-monaco adobe-source-han-sans-cn-fonts`.
+- If you need to run the command (the default shortcut is M+r), you need to install [rofi](https://github.com/davatorium/rofi). In archlinux you can run `pacman -S rofi` to install it.
+
 ### Installation
 ---
 ```bash
