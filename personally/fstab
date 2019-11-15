@@ -1,0 +1,12 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme0n1p2
+UUID=481cf8c2-2e45-4909-b655-fec14f629870   /           ext4        rw,noatime,discard  0 1
+
+# /dev/nvme0n1p1
+UUID=7F6B-1A88          /boot       vfat        rw,noatime,discard,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro    0 2
+
+# /dev/sda1
+/dev/sda1   /home/tianhongw/Hdd ext4    rw,noatime,noauto,x-systemd.automount,users 0 0
