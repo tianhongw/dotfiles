@@ -1,5 +1,6 @@
 adobe-source-code-pro-fonts
 adobe-source-han-sans-cn-fonts
+alacritty
 alsa-utils
 archlinuxcn-keyring
 autoconf
@@ -24,6 +25,7 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
+dmidecode
 docker
 docker-compose
 dos2unix
@@ -41,6 +43,7 @@ fcitx-gtk2
 fcitx-gtk3
 fcitx-qt5
 fcitx-sogoupinyin
+fcitx-sunpinyin
 feh
 file
 filesystem
@@ -58,6 +61,7 @@ glibc
 go
 google-chrome
 gptfdisk
+graphviz
 grep
 groff
 grub
@@ -86,6 +90,7 @@ make
 man-db
 man-pages
 mdadm
+mit-scheme
 mlocate
 mousepad
 nano
@@ -112,7 +117,10 @@ psmisc
 python
 reiserfsprogs
 rofi
+rust
+rust-docs-nightly
 rxvt-unicode
+sbcl
 sed
 shadow
 s-nail
