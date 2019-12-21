@@ -109,3 +109,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt HIST_IGNORE_DUPS
+
+alias proxy='export all_proxy=socks5://127.0.0.1:1080'
+alias unproxy='unset all_proxy'
