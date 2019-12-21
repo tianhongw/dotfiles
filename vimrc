@@ -173,6 +173,12 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }
 
 "----Vim-go
 let g:go_fmt_command = "goimports"
@@ -185,10 +191,12 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
 nnoremap <leader>r :bro ol<CR>
-nnoremap <Tab> <C-W>w
 nnoremap <leader>d <C-W>c
+nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Tab> <C-W>w
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
+autocmd FileType go nmap <silent> <C-J> <Plug>(go-def-vertical)
 "---------------------------Key map end--------------------
 
 "---------------------------Quick run begin------------------
