@@ -19,6 +19,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'          
+Plugin 'yegappan/mru'          
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -180,19 +182,28 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(1)':        ['<up>'],
     \ }
 
+"----mru
+let MRU_Max_Entries = 1000
+let MRU_File = '/Users/wutianhong/.vim_mru_files'
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+let MRU_Use_Current_Window = 1
+
 "----Vim-go
 let g:go_fmt_command = "goimports"
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
 noremap \ ,
+inoremap jk <Esc>
 nnoremap <leader>s :up<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>\| :vs<CR>
 nnoremap <leader>- :sp<CR>
-nnoremap <leader>r :bro ol<CR>
+nnoremap <leader>r :MRU<CR>
 nnoremap <leader>d <C-W>c
 nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>l :TagbarToggle<CR>
+nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Tab> <C-W>w
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
