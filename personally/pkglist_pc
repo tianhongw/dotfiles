@@ -43,8 +43,6 @@ fava
 fbreader
 fcitx
 fcitx-configtool
-fcitx-gtk2
-fcitx-gtk3
 fcitx-qt5
 feh
 file
@@ -126,8 +124,6 @@ pulseaudio-bluetooth
 python
 reiserfsprogs
 rofi
-rust
-rust-docs-nightly
 rxvt-unicode
 sbcl
 sed
@@ -188,4 +184,5 @@ xfsprogs
 xorg-server
 xorg-xinit
 yay
+zip
 zsh
