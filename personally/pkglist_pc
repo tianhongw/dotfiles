@@ -84,6 +84,7 @@ linux
 linux-firmware
 linux-lts
 logrotate
+lsd
 lsof
 lvm2
 m4
