@@ -39,27 +39,27 @@ filetype plugin indent on    " required
 "-----------------------------Vundle end----------------------------
 
 "-----------------------------General setting begin----------------
+let mapleader = ','
 syntax on
 set shell=/bin/zsh
-let mapleader = ','
-set history=30
+set history=500
 set viminfo='30
 set nobackup
 set noerrorbells
 set novisualbell
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
-set encoding=utf-8  " The encoding displayed.
-set fileencoding=utf-8  " The encoding written to file.
+set encoding=utf-8          " The encoding displayed.
+set fileencoding=utf-8      " The encoding written to file.
 scriptencoding utf-8
-set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
-set virtualedit=onemore             " Allow for cursor beyond last character
-set spell                           " Spell checking on
-set hidden                          " Allow buffer switching without saving
-set iskeyword-=.                    " '.' is an end of word designator
-set iskeyword-=#                    " '#' is an end of word designator
-set iskeyword-=-                    " '-' is an end of word designator
+set shortmess+=filmnrxoOtT                                              " Abbrev. of messages (avoids 'hit enter')
+set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
+set virtualedit=onemore                                                 " Allow for cursor beyond last character
+set spell                                                               " Spell checking on
+set hidden                                                              " Allow buffer switching without saving
+set iskeyword-=.                                                        " '.' is an end of word designator
+set iskeyword-=#                                                        " '#' is an end of word designator
+set iskeyword-=-                                                        " '-' is an end of word designator
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 "-----------------------------General setting end---------------------
 
@@ -109,7 +109,8 @@ set foldenable                  " Auto fold code
 "set list
 "set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
 set laststatus=2
-set statusline=%<%f\                     " Filename
+set statusline=%{HasPaste()}
+set statusline+=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
 set statusline+=\ [%{&ff}/%Y]            " Filetype
 set statusline+=\ [%{getcwd()}]          " Current dir
@@ -184,7 +185,7 @@ let g:ctrlp_prompt_mappings = {
 
 "----mru
 let MRU_Max_Entries = 1000
-let MRU_File = '/Users/wutianhong/.vim_mru_files'
+let MRU_File = '/home/tianhongw/.vim_mru_files'
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Use_Current_Window = 1
 
@@ -207,6 +208,8 @@ nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Tab> <C-W>w
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
+" Toggle paste mode on and off
+nnoremap <leader>pp :setlocal paste!<cr>
 autocmd FileType go nmap <silent> <C-J> <Plug>(go-def-vertical)
 "---------------------------Key map end--------------------
 
@@ -283,3 +286,16 @@ function! SaveAndExecuteCode()
     setlocal nomodifiable
 endfunction
 "---------------------------Quick run end------------------
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
