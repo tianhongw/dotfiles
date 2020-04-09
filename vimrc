@@ -185,7 +185,7 @@ let g:ctrlp_prompt_mappings = {
 
 "----mru
 let MRU_Max_Entries = 1000
-let MRU_File = '/home/tianhongw/.vim_mru_files'
+let MRU_File = '~/.vim_mru_files'
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Use_Current_Window = 1
 
