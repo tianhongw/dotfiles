@@ -19,6 +19,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 Plugin 'majutsushi/tagbar'          
 Plugin 'yegappan/mru'          
 
@@ -144,7 +145,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_go_checkers = ['govet']
+let g:syntastic_go_checkers = ['govet', 'golint']
 let g:syntastic_quiet_messages = { "type": "style"  }   "disable all style messages
 
 "----Youcompleteme
@@ -189,8 +190,11 @@ let MRU_File = '~/.vim_mru_files'
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Use_Current_Window = 1
 
-"----Vim-go
+"----vim-go
 let g:go_fmt_command = "goimports"
+
+"----rust
+let g:rustfmt_autosave = 1
 "----------------------------Plugin end----------------------
 
 "---------------------------Key map begin--------------------
