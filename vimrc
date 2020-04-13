@@ -160,7 +160,7 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
 
 "----Nerdtree
-noremap <c-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -208,7 +208,7 @@ nnoremap <leader>r :MRU<CR>
 nnoremap <leader>d <C-W>c
 nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>l :TagbarToggle<CR>
-nnoremap <Leader>o :NERDTreeToggle<CR>
+nnoremap <Leader>o :NERDTreeFind<CR>
 nnoremap <Tab> <C-W>w
 nnoremap <C-L> :!clear<CR>
 nnoremap <F2> :e ~/.vimrc<CR>
