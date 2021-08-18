@@ -64,6 +64,7 @@ git
 glibc
 go
 google-chrome
+gparted
 gptfdisk
 graphviz
 grep
@@ -102,7 +103,6 @@ make
 man-db
 man-pages
 mdadm
-mit-scheme
 mlocate
 mousepad
 nano
@@ -170,7 +170,6 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
-thrift
 time
 tk
 tmux
@@ -202,6 +201,7 @@ xfsprogs
 xorg-server
 xorg-xinit
 yapf
+yarn
 yay
 zip
 zsh
