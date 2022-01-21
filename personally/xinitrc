@@ -35,5 +35,5 @@ fi
 numlockx &
 fcitx &
 compton --config /home/tianhongw/.config/compton/compton.conf &
-mpd /home/tianhongw/.config/mpd/mpd.conf &
+setxkbmap -option caps:escape
 exec awesome
