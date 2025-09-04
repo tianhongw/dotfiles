@@ -19,6 +19,11 @@ font pango:Source Code Pro 12
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+default_border none
+gaps inner 5px
+gaps outer 5px
+smart_gaps on
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -50,9 +55,6 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty -e tmux -2
-
-# remove window title
-for_window [class="^.*"] border pixel 0
 
 # start polybar
 exec --no-startup-id ~/.config/polybar/launch.sh
