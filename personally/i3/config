@@ -27,7 +27,7 @@ smart_gaps on
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id picom -b
+exec_always feh --bg-scale "/home/tianhongwu/data/media/picture/wallpapers/cropped-1920-1080-1055902.jpg"
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
