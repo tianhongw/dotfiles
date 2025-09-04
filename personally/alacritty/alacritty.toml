@@ -59,6 +59,3 @@ hide_when_typing = true
 
 [selection]
 semantic_escape_chars = ''',│`|:"' ()[]{}<>	'''
-
-[window]
-opacity = 0.9
