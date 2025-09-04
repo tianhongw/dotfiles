@@ -1,0 +1,64 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[keyboard]
+bindings = [
+{ key = "C", mods = "Control|Shift", action = "Copy" },
+{ key = "V", mods = "Control|Shift", action = "Paste" },
+]
+
+[general]
+working_directory = "None"
+
+[colors.bright]
+black = "#75715E"
+blue = "#66D9EF"
+cyan = "#A1EFE4"
+green = "#A6E22E"
+magenta = "#AE81FF"
+red = "#F92672"
+white = "#F9F8F5"
+yellow = "#F4BF75"
+
+[colors.cursor]
+cursor = "0x928374"
+text = "0x000000"
+
+[colors.normal]
+black = "#272822"
+blue = "#66D9EF"
+cyan = "#A1EFE4"
+green = "#A6E22E"
+magenta = "#AE81FF"
+red = "#F92672"
+white = "#F8F8F2"
+yellow = "#F4BF75"
+
+[colors.primary]
+background = "#272822"
+foreground = "#F8F8F2"
+
+[debug]
+log_level = "Warn"
+persistent_logging = false
+print_events = false
+render_timer = false
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 20
+
+[font.normal]
+family = "Source Code Pro"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[selection]
+semantic_escape_chars = ''',│`|:"' ()[]{}<>	'''
+
+[window]
+opacity = 0.9
