@@ -1,4 +1,4 @@
-Xft.dpi:96
+Xft.dpi:120
 Xft.antialias:true
 Xft.rgba:rgb
 Xft.hinting:true
@@ -23,7 +23,7 @@ URxvt.saveLines:100
 URxvt.borderLess:false
 
 URxvt.allow_bold:false
-URxvt.font:xft:Monaco:style=Regular:antialias=True:size=12,xft:Source Han Sans CN:style=Regular:size=12
+URxvt.font:xft:Source Code Pro:style=Regular:antialias=True:size=12,xft:Source Han Sans CN:style=Regular:size=12
 URxvt.boldfont:xft:Source Code Pro:style=Regular:antialias=True:size=12,xft:Source Han Sans CN:style=Regular:size=12
 
 !URxvt.inheritPixmap:false
