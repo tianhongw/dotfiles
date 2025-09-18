@@ -129,6 +129,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# switch back and forth
+bindsym $mod+p workspace back_and_forth
+
 # open emacs
 bindsym $mod+x exec emacs; workspace $ws2
 
@@ -176,8 +179,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign to specific workspace
-assign [class="Clash-verge"] $ws9
+# assign [class="Google-chrome"] $ws3
 assign [class="wechat"] $ws4
+assign [class="Clash-verge"] $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
