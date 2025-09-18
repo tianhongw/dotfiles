@@ -19,10 +19,6 @@ font pango:Source Code Pro 16
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# Gaps
-default_border none
-gaps inner 5px
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -46,11 +42,11 @@ bindsym $mod+Shift+p exec flameshot gui -p /home/tianhongwu/data/media/picture/s
 # exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -81,6 +77,10 @@ bindsym $mod+r exec --no-startup-id rofi -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# gaps
+default_border none
+gaps inner 5px
 
 # change focus
 bindsym $mod+h focus left
@@ -130,10 +130,10 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # open emacs
-bindsym $mod+x exec emacs
+bindsym $mod+x exec emacs; workspace $ws2
 
 # open chrome
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec google-chrome-stable; workspace $ws3
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -174,6 +174,10 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# assign to specific workspace
+assign [class="Clash-verge"] $ws9
+assign [class="wechat"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
