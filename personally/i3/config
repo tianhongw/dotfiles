@@ -182,6 +182,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="Emacs"] $ws2
 assign [class="Google-chrome"] $ws3
 assign [class="wechat"] $ws4
+assign [class="obsidian"] $ws5
 assign [class="Clash-verge"] $ws9
 
 # reload the configuration file
