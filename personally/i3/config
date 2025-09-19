@@ -179,7 +179,8 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # assign to specific workspace
-# assign [class="Google-chrome"] $ws3
+assign [class="Emacs"] $ws2
+assign [class="Google-chrome"] $ws3
 assign [class="wechat"] $ws4
 assign [class="Clash-verge"] $ws9
 
