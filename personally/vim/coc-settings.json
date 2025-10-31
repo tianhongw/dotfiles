@@ -1,0 +1,18 @@
+{
+  "[go][c][cpp][json][rust][markdown][typescript][typescriptreact][javascript][python][html]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "suggest.noselect": true,
+  "suggest.triggerAfterInsertEnter": true,
+
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black",
+
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "eslint.format.enable": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onType"
+}
