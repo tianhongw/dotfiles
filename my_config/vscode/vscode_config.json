@@ -10,7 +10,7 @@
                 "<C-j>",
             ],
             "commands": [
-                "editor.action.revealDefinition"
+                "editor.action.peekDefinition"
             ]
         },
         {
@@ -71,8 +71,8 @@
         {
             "before": [
                 "<leader>",
-                "s",
-                "s"
+                "f",
+                "f"
             ],
             "commands": [
                 "workbench.action.findInFiles"
@@ -85,16 +85,6 @@
             ],
             "commands": [
                 "workbench.action.quickOpen"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "t"
-            ],
-            "commands": [
-                "workbench.action.terminal.toggleTerminal",
             ]
         },
         {
@@ -120,4 +110,16 @@
     "files.autoSave": "onWindowChange",
     "terminal.integrated.cursorBlinking": true,
     "window.restoreFullscreen": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "explorer.confirmDelete": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "typescript.suggest.paths": false,
+    "javascript.suggest.paths": false,
+    "explorer.confirmDragAndDrop": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
 }
