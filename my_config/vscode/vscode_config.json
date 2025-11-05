@@ -1,125 +1,84 @@
 {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "vim.leader": ",",
-    "vim.commandLineModeKeyBindings": [],
-    "vim.normalModeKeyBindings": [
-        {
-            "before": [
-                "<C-j>",
-            ],
-            "commands": [
-                "editor.action.peekDefinition"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "|",
-            ],
-            "commands": [
-                "workbench.action.splitEditor",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "-",
-            ],
-            "commands": [
-                "workbench.action.splitEditorDown",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "r",
-                "r"
-            ],
-            "commands": [
-                "workbench.action.openRecent"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "e"
-            ],
-            "commands": [
-                "workbench.view.explorer",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "x"
-            ],
-            "commands": [
-                "workbench.action.showCommands"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "b"
-            ],
-            "commands": [
-                "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "f"
-            ],
-            "commands": [
-                "workbench.action.findInFiles"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "o"
-            ],
-            "commands": [
-                "workbench.action.quickOpen"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "r"
-            ],
-            "commands": [
-                "editor.action.goToReferences"
-            ]
-        }
-    ],
-    "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-b>": false,
-        "<C-s>": false,
-        "<C-z>": false,
-        "<C-f>": false,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "vim.leader": ",",
+  "vim.commandLineModeKeyBindings": [],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-j>"],
+      "commands": ["editor.action.revealDefinition"]
     },
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "~/.vimrc",
-    "files.autoSave": "onWindowChange",
-    "terminal.integrated.cursorBlinking": true,
-    "window.restoreFullscreen": true,
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+    {
+      "before": ["<leader>", "|"],
+      "commands": ["workbench.action.splitEditor"]
     },
-    "explorer.confirmDelete": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "[vue]": {
-        "editor.defaultFormatter": "Vue.volar"
+    {
+      "before": ["<leader>", "-"],
+      "commands": ["workbench.action.splitEditorDown"]
     },
-    "typescript.suggest.paths": false,
-    "javascript.suggest.paths": false,
-    "explorer.confirmDragAndDrop": false,
-    "github.copilot.nextEditSuggestions.enabled": true,
+    {
+      "before": ["<leader>", "r", "r"],
+      "commands": ["workbench.action.openRecent"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "x"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": [
+        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+      ]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "d", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "f", "r"],
+      "commands": ["editor.action.goToReferences"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-b>": false,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-f>": false
+  },
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.vimrc",
+  "files.autoSave": "onWindowChange",
+  "terminal.integrated.cursorBlinking": true,
+  "window.restoreFullscreen": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "explorer.confirmDelete": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "explorer.confirmDragAndDrop": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "git.openRepositoryInParentFolders": "never"
 }

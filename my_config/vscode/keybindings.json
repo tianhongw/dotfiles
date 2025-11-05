@@ -1,0 +1,17 @@
+[
+  {
+    "key": "space tab",
+    "command": "workbench.view.explorer",
+    "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+  },
+  {
+    "key": "space tab",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !replaceInputFocus"
+  }
+]
