@@ -30,7 +30,6 @@ call plug#end()
 " ============================================================================
 " 3. General settings
 " ============================================================================
-set nocompatible
 set encoding=utf-8
 set fileencoding=utf-8
 set mouse=a
@@ -45,6 +44,16 @@ set signcolumn=yes
 set splitright
 set splitbelow
 set hidden
+set lazyredraw
+set ttyfast
+set scrolloff=8
+set sidescrolloff=8
+set wildmenu
+set wildmode=longest:full,full
+
+" Persistent undo
+set undofile
+set undodir=~/.vim/undodir
 
 set ignorecase
 set smartcase
@@ -65,6 +74,7 @@ set smartindent
 syntax on
 set number
 set cursorline
+set laststatus=2
 set background=dark
 
 if (has("termguicolors"))
@@ -81,8 +91,8 @@ let g:airline#extensions#tabline#enabled = 1 " 顶部显示 buffer tab
 " 5. Key Mappings
 " ============================================================================
 let mapleader = ","
-inoremap jk <Esc>
 
+inoremap jk <Esc>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <Tab> <C-w>w
@@ -92,6 +102,9 @@ nnoremap <leader>r :History<CR>
 
 " --- Plugin ---
 " NERDTree
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 nnoremap <leader>n :NERDTreeToggle<CR>
 " Tagbar
 if executable('/opt/homebrew/bin/ctags')
@@ -121,12 +134,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nmap <silent> gd <Plug>(coc-definition)
+" Diagnostic navigation
 nmap <silent> <C-j> <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <C-r> <Plug>(coc-references)
 
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
