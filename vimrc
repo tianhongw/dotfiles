@@ -1,305 +1,165 @@
-" -------------------------------Vundle begin---------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
-Plugin 'majutsushi/tagbar'          
-Plugin 'yegappan/mru'          
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"-----------------------------Vundle end----------------------------
-
-"-----------------------------General setting begin----------------
-let mapleader = ','
-syntax on
-set shell=/bin/zsh
-set history=500
-set viminfo='30
-set nobackup
-set noerrorbells
-set novisualbell
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
-set encoding=utf-8          " The encoding displayed.
-set fileencoding=utf-8      " The encoding written to file.
-scriptencoding utf-8
-set shortmess+=filmnrxoOtT                                              " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
-set virtualedit=onemore                                                 " Allow for cursor beyond last character
-set spell                                                               " Spell checking on
-set hidden                                                              " Allow buffer switching without saving
-set iskeyword-=.                                                        " '.' is an end of word designator
-set iskeyword-=#                                                        " '#' is an end of word designator
-set iskeyword-=-                                                        " '-' is an end of word designator
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-"-----------------------------General setting end---------------------
-
-"----------------------------UI seting begin-------------------------
-if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=r
-    set guioptions-=b
-    set showtabline=0
-    if has("unix")
-        set guifont=Source\ Code\ Pro\ 12
-        set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
-    endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
 
-set tabpagemax=15               " Only show 15 tabs
-set showmode                    " Display the current mode
-set cursorline                  " Highlight current line
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
+call plug#begin('~/.vim/plugged')
 
-set ruler
-set backspace=indent,eol,start  " Backspace for dummies
-set linespace=0                 " No extra spaces between rows
-set number                      " Line numbers on
-set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
-set hlsearch                    " Highlight search terms
-set winminheight=0              " Windows can be 0 line high
-set ignorecase                  " Case insensitive search
-set smartcase                   " Case sensitive when uc present
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
-"set list
-"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
+" --- UI and Theme ---
+Plug 'lifepillar/vim-solarized8'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" --- Files and navigation ---
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" --- Edit ---
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+
+" --- Coc ---
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" ============================================================================
+" 3. General settings
+" ============================================================================
+set encoding=utf-8
+set fileencoding=utf-8
+set mouse=a
+set clipboard=unnamed
+set history=1000
+set nobackup
+set nowritebackup
+set noswapfile
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+set splitright
+set splitbelow
+set hidden
+set lazyredraw
+set ttyfast
+set scrolloff=8
+set sidescrolloff=8
+set wildmenu
+set wildmode=longest:full,full
+
+" Persistent undo
+set undofile
+set undodir=~/.vim/undodir
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+
+" ============================================================================
+" 4. UI settings
+" ============================================================================
+syntax on
+set number
+set cursorline
 set laststatus=2
-set statusline=%{HasPaste()}
-set statusline+=%<%f\                     " Filename
-set statusline+=%w%h%m%r                 " Options
-set statusline+=\ [%{&ff}/%Y]            " Filetype
-set statusline+=\ [%{getcwd()}]          " Current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-"----------------------------UI seting end-------------------------
+set background=dark
 
-"----------------------------Formatting begin----------------------
-set nowrap                      " Do not wrap long lines
-set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
-set expandtab                   " Tabs are spaces, not tabs
-set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
-set smarttab
-set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-set splitright                  " Puts new vsplit windows to the right of the current
-set splitbelow                  " Puts new split windows to the bottom of the current
-"set matchpairs+=<:>            "Match, to be used with %
-"set pastetoggle=<F12>          "pastetoggle (sane indentation on pastes)
-"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
-"----------------------------Formatting end----------------------
+if (has("termguicolors"))
+  set termguicolors
+endif
 
-"----------------------------Plugin begin----------------------
-"----vim-syntastic/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_go_checkers = ['govet', 'golint']
-let g:syntastic_quiet_messages = { "type": "style"  }   "disable all style messages
+colorscheme solarized8_high
 
-"----Youcompleteme
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_semantic_triggers =  {'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],'cs,lua,javascript': ['re!\w{2}'],}
+" --- Airline settings ---
+let g:airline_theme='solarized'
+let g:airline#extensions#tabline#enabled = 1 " 顶部显示 buffer tab
 
-"----Nerdtree
-noremap <C-n> :NERDTreeFind<CR>
-let NERDTreeShowHidden=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" ============================================================================
+" 5. Key Mappings
+" ============================================================================
+let mapleader = ","
 
-"----CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc|reg|mp3|jpg|png|jpeg)$',
-    \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
-    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
-    \ 'PrtHistory(-1)':       ['<down>'],
-    \ 'PrtHistory(1)':        ['<up>'],
-    \ }
-
-"----mru
-let MRU_Max_Entries = 1000
-let MRU_File = '~/.vim_mru_files'
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-let MRU_Use_Current_Window = 1
-
-"----vim-go
-let g:go_fmt_command = "goimports"
-
-"----rust
-let g:rustfmt_autosave = 1
-"----------------------------Plugin end----------------------
-
-"---------------------------Key map begin--------------------
-noremap \ ,
 inoremap jk <Esc>
-nnoremap <leader>s :up<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>\| :vs<CR>
-nnoremap <leader>- :sp<CR>
-nnoremap <leader>r :MRU<CR>
-nnoremap <leader>d <C-W>c
-nnoremap <Leader>b :ls<CR>:b<Space>
-nnoremap <Leader>l :TagbarToggle<CR>
-nnoremap <Leader>o :NERDTreeFind<CR>
-nnoremap <Tab> <C-W>w
-nnoremap <C-L> :!clear<CR>
-nnoremap <F2> :e ~/.vimrc<CR>
-" Toggle paste mode on and off
-nnoremap <leader>pp :setlocal paste!<cr>
-autocmd FileType go nmap <silent> <C-J> <Plug>(go-def-vertical)
-"---------------------------Key map end--------------------
+nnoremap <Tab> <C-w>w
+nnoremap <F2> :e $MYVIMRC<CR>
+nnoremap <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><c-l>
+nnoremap <leader>r :History<CR>
 
-"---------------------------Quick run begin------------------
-nnoremap <silent> <F5> :call SaveAndExecuteCode()<CR>
-vnoremap <silent> <F5> :<C-u>call SaveAndExecuteCode()<CR>
+" --- Plugin ---
+" NERDTree
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+nnoremap <leader>n :NERDTreeToggle<CR>
+" Tagbar
+if executable('/opt/homebrew/bin/ctags')
+    let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+elseif executable('/usr/local/bin/ctags')
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
+nnoremap <leader>l :TagbarToggle<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <C-f> :Rg<CR>
 
-function! SaveAndExecuteCode()
-    " save and reload current file
-    silent execute "update | edit"
+" ============================================================================
+" 6. CoC.nvim
+" ============================================================================
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-    " get file type
-    if &filetype == 'python'
-        let s:current_file_type = "python"
-    elseif &filetype == 'go'
-        let s:current_file_type = "go"
-    elseif &filetype == 'cpp'
-        let s:current_file_type = "cpp"
-    else
-        return
-    endif
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-    " get file path of current file
-    let s:current_buffer_file_path = expand("%")
-
-    let s:output_buffer_name = "OUTPUT"
-    let s:output_buffer_filetype = "output"
-
-    " reuse existing buffer window if it exists otherwise create a new one
-    if !exists("s:buf_nr") || !bufexists(s:buf_nr)
-        silent execute 'split new ' . s:output_buffer_name
-        let s:buf_nr = bufnr('%')
-    elseif bufwinnr(s:buf_nr) == -1
-        silent execute 'split new'
-        silent execute s:buf_nr . 'buffer'
-    elseif bufwinnr(s:buf_nr) != bufwinnr('%')
-        silent execute bufwinnr(s:buf_nr) . 'wincmd w'
-    endif
-
-    silent execute "setlocal filetype=" . s:output_buffer_filetype
-    setlocal bufhidden=delete
-    setlocal buftype=nofile
-    setlocal noswapfile
-    setlocal nobuflisted
-    setlocal winfixheight
-    setlocal cursorline " make it easy to distinguish
-    setlocal nonumber
-    setlocal norelativenumber
-    setlocal showbreak=""
-
-    " clear the buffer
-    setlocal noreadonly
-    setlocal modifiable
-    %delete _
-
-    " add the console output
-    if s:current_file_type == "python"
-        silent execute ".!python " . shellescape(s:current_buffer_file_path, 1)
-    elseif s:current_file_type == "go"
-        silent execute ".!go run " . shellescape(s:current_buffer_file_path, 1)
-    elseif s:current_file_type == "cpp"
-        silent execute ".!g++ -std=c++17 -o /tmp/a.out " . shellescape(s:current_buffer_file_path, 1)
-        silent execute ".!/tmp/a.out"
-    endif
-
-    " resize window to content length
-    " Note: This is annoying because if you print a lot of lines then your code buffer is forced to a height of one line every time you run this function.
-    "       However without this line the buffer starts off as a default size and if you resize the buffer then it keeps that custom size after repeated runs of this function.
-    "       But if you close the output buffer then it returns to using the default size when its recreated
-    " execute 'resize' . line('$')
-
-    " make the buffer non modifiable
-    setlocal readonly
-    setlocal nomodifiable
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-"---------------------------Quick run end------------------
 
+" Diagnostic navigation
+nmap <silent> <C-j> <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
+
+" --- Other ---
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup TRIM_WHITESPACE
+    autocmd!
+    autocmd BufWritePre * if &ft != 'markdown' | call TrimWhitespace() | endif
+augroup END
