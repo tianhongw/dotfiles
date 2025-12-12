@@ -1,241 +1,147 @@
-" -------------------------------Vundle begin---------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'          
-Plugin 'yegappan/mru'          
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"-----------------------------Vundle end----------------------------
-
-"-----------------------------General setting begin----------------
-let mapleader = ','
-syntax on
-set shell=/bin/zsh
-set history=500
-set viminfo='30
-set nobackup
-set noerrorbells
-set novisualbell
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
-set encoding=utf-8          " The encoding displayed.
-set fileencoding=utf-8      " The encoding written to file.
-scriptencoding utf-8
-set shortmess+=filmnrxoOtT                                              " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
-set virtualedit=onemore                                                 " Allow for cursor beyond last character
-set spell                                                               " Spell checking on
-set hidden                                                              " Allow buffer switching without saving
-set iskeyword-=.                                                        " '.' is an end of word designator
-set iskeyword-=#                                                        " '#' is an end of word designator
-set iskeyword-=-                                                        " '-' is an end of word designator
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-"-----------------------------General setting end---------------------
-
-"----------------------------UI seting begin-------------------------
-if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=r
-    set guioptions-=b
-    set showtabline=0
-    if has("unix")
-        set guifont=Source\ Code\ Pro\ 12
-        set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
-    endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-set t_Co=256
-let g:solarized_termcolors=256
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-let g:solarized_termtrans=1
-set background=dark
-colorscheme solarized
 
-set tabpagemax=15               " Only show 15 tabs
-set showmode                    " Display the current mode
-set cursorline                  " Highlight current line
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
+call plug#begin('~/.vim/plugged')
 
-set ruler
-set backspace=indent,eol,start  " Backspace for dummies
-set linespace=0                 " No extra spaces between rows
-set number                      " Line numbers on
-set showmatch                   " Show matching brackets/parenthesis
-set incsearch                   " Find as you type search
-set hlsearch                    " Highlight search terms
-set winminheight=0              " Windows can be 0 line high
-set ignorecase                  " Case insensitive search
-set smartcase                   " Case sensitive when uc present
-set wildmenu                    " Show list instead of just completing
-set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
-set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
-set scrolljump=5                " Lines to scroll when cursor leaves screen
-set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
-"set list
-"set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespacek
-set laststatus=2
-set statusline=%{HasPaste()}
-set statusline+=%<%f\                     " Filename
-set statusline+=%w%h%m%r                 " Options
-set statusline+=\ [%{&ff}/%Y]            " Filetype
-set statusline+=\ [%{getcwd()}]          " Current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-"----------------------------UI seting end-------------------------
+" --- UI and Theme ---
+Plug 'lifepillar/vim-solarized8'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-"----------------------------Formatting begin----------------------
-set nowrap                      " Do not wrap long lines
-set autoindent                  " Indent at the same level of the previous line
-set shiftwidth=4                " Use indents of 4 spaces
-set expandtab                   " Tabs are spaces, not tabs
-set tabstop=4                   " An indentation every four columns
-set softtabstop=4               " Let backspace delete indent
-set smarttab
-set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-set splitright                  " Puts new vsplit windows to the right of the current
-set splitbelow                  " Puts new split windows to the bottom of the current
-"----------------------------Formatting end----------------------
+" --- Files and navigation ---
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-"----------------------------Plugin begin----------------------
+" --- Edit ---
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
 
-"----Nerdtree
-noremap <C-n> :NERDTreeFind<CR>
-let NERDTreeShowHidden=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" --- Coc ---
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"----CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc|reg|mp3|jpg|png|jpeg)$',
-    \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
-    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
-    \ 'PrtHistory(-1)':       ['<down>'],
-    \ 'PrtHistory(1)':        ['<up>'],
-    \ }
+call plug#end()
 
-"----mru
-let MRU_Max_Entries = 1000
-let MRU_File = '~/.vim_mru_files'
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-let MRU_Use_Current_Window = 1
-
-"---------------------------CoC.nvim begin------------------
-set shortmess+=C
+" ============================================================================
+" 3. General settings
+" ============================================================================
+set nocompatible
+set encoding=utf-8
+set fileencoding=utf-8
+set mouse=a
+set clipboard=unnamed
+set history=1000
+set nobackup
+set nowritebackup
+set noswapfile
+set updatetime=300
+set shortmess+=c
 set signcolumn=yes
+set splitright
+set splitbelow
+set hidden
 
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+
+" ============================================================================
+" 4. UI settings
+" ============================================================================
+syntax on
+set number
+set cursorline
+set background=dark
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme solarized8_high
+
+" --- Airline settings ---
+let g:airline_theme='solarized'
+let g:airline#extensions#tabline#enabled = 1 " 顶部显示 buffer tab
+
+" ============================================================================
+" 5. Key Mappings
+" ============================================================================
+let mapleader = ","
+inoremap jk <Esc>
+
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <Tab> <C-w>w
+nnoremap <F2> :e $MYVIMRC<CR>
+nnoremap <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><c-l>
+nnoremap <leader>r :History<CR>
+
+" --- Plugin ---
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+" Tagbar
+nnoremap <leader>l :TagbarToggle<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <C-f> :Rg<CR>
+
+" ============================================================================
+" 6. CoC.nvim
+" ============================================================================
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['tab', ''])<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>"
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nnoremap <silent> K <Cmd>call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> <C-j>  <Plug>(coc-definition)
+nmap <silent> <C-j> <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-r> <Plug>(coc-references)
+
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>ca <Plug>(coc-codeaction-cursor)
 
-"---------------------------CoC.nvim end--------------------
+" --- Other ---
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-"----------------------------Plugin end----------------------
-
-"---------------------------Key map begin--------------------
-noremap \ ,
-inoremap jk <Esc>
-nnoremap <leader>s :up<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>\| :vs<CR>
-nnoremap <leader>- :sp<CR>
-nnoremap <leader>r :MRU<CR>
-nnoremap <leader>d <C-W>c
-nnoremap <Leader>b :ls<CR>:b<Space>
-nnoremap <Leader>l :TagbarToggle<CR>
-nnoremap <Leader>o :NERDTreeFind<CR>
-nnoremap <Tab> <C-W>w
-nnoremap <C-L> :!clear<CR>
-nnoremap <F2> :e ~/.vimrc<CR>
-" Toggle paste mode on and off
-nnoremap <leader>pp :setlocal paste!<cr>
-"---------------------------Key map end--------------------
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+augroup TRIM_WHITESPACE
+    autocmd!
+    autocmd BufWritePre * if &ft != 'markdown' | call TrimWhitespace() | endif
+augroup END
