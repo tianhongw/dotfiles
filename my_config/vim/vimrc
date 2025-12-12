@@ -94,6 +94,11 @@ nnoremap <leader>r :History<CR>
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 " Tagbar
+if executable('/opt/homebrew/bin/ctags')
+    let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+elseif executable('/usr/local/bin/ctags')
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
