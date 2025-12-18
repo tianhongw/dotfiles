@@ -85,7 +85,6 @@ colorscheme solarized8_high
 
 " --- Airline settings ---
 let g:airline_theme='solarized'
-let g:airline#extensions#tabline#enabled = 1 " 顶部显示 buffer tab
 
 " ============================================================================
 " 5. Key Mappings
