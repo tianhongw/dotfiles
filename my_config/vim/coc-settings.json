@@ -1,7 +1,8 @@
 {
-  "[go][c][cpp][json][rust][markdown][typescript][typescriptreact][javascript][python][html]": {
-    "coc.preferences.formatOnSave": true
+  "go.goplsOptions": {
+    "gofumpt": true
   },
+  "coc.preferences.formatOnSave": true,
   "suggest.noselect": true,
   "suggest.triggerAfterInsertEnter": true,
 
