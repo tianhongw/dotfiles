@@ -15,5 +15,6 @@
   "typescript.format.enable": false,
   "eslint.format.enable": false,
   "eslint.alwaysShowStatus": true,
-  "eslint.run": "onType"
+  "eslint.run": "onType",
+  "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd"
 }
