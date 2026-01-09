@@ -98,6 +98,7 @@ nnoremap <Tab> <C-w>w
 nnoremap <F2> :e $MYVIMRC<CR>
 nnoremap <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><c-l>
 nnoremap <leader>r :History<CR>
+nnoremap <leader>p "+p
 
 " --- Plugin ---
 " NERDTree
